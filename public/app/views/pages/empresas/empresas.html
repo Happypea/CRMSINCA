@@ -1,0 +1,63 @@
+<h1>
+	Empresas 
+	<a href="/empresas/create" class="btn btn-default">
+		<span class="glyphicon glyphicon-plus"></span> 
+		Nueva empresa.
+	</a>
+</h1>
+
+<div class="jumbotron text-center" ng-show="empresa.processing">
+	<span class="glyphicon glyphicon-repeat spinner"></span>
+	<p>Cargando Empresas...</p>
+</div>
+<div class="leftcol col-xs-12" id="empresasMain">
+
+	<div id="empresasBuscador" class="col-xs-12">
+		<span class="col-xs-2">
+			<input type="text" class="col-xs-12 buscadorEmpresasInput">
+		</span>
+		<span class="col-xs-2">
+			<i class="fa fa-search"></i>
+		</span>
+	</div>
+	
+	<div id="listaEmpresas" class="col-xs-12">
+		
+		<table class="table table-bordered table-striped" ng-show="empresa.empresas">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Web</th>
+					<th class="col-sm-2">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="buss in empresa.empresas">
+					<td>{{ buss.nombre }}</td>
+					<td>{{ buss.website}}</td>
+					<td >
+						<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
+						<a href="#" ng-click="empresa.deleteEmpresa(buss._id)" class="btn btn-default btn-sm col-xs-12">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<!--div class="rightCol col-sm-4 col-xs-12" id="empresasLateral">
+	
+	<div id="empresasFiltros" class="col-xs-12">
+		<ul class="list-unstyled">
+			<li><label><input type="checkbox"> Lorem ipsum dolor</label></li>
+			<li><label><input type="checkbox"> tempor incididunt ut</label></li>
+			<li><label><input type="checkbox"> quis nostrud exercitation</label></li>
+			<li><label><input type="checkbox"> consequat. Duis</label></li>
+			<li><label><input type="checkbox"> cillum dolore eu</label></li>
+			<li><label><input type="checkbox"> proident, sunt</label></li>
+		</ul>
+	</div>
+</div-->
+
+
+

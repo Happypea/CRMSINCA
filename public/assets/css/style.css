@@ -1,0 +1,75 @@
+main 					{
+	padding-top:30px;	
+}
+
+/* HEADER 
+===================== */
+header .navbar 		{ 
+	border-radius:0;
+}
+
+/* NGANIMATE
+====================== */
+
+/* show and hide */
+.show-hide-message.ng-hide-remove {
+	-webkit-animation:zoomIn 0.3s both ease;
+	-moz-animation:zoomIn 0.3s both ease;
+	animation:zoomIn 0.3s both ease;
+}
+
+/* ANIMATIONS
+====================== */
+.spinner {
+	-webkit-animation:spin 1s infinite;
+	-moz-animation:spin 1s infinite;
+	animation:spin 1s infinite;
+}
+
+@keyframes spin {
+	from 	{ transform:rotate(0deg); }
+	to 	{ transform:rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+	from 	{ -webkit-transform:rotate(0deg); }
+	to 	{ -webkit-transform:rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+	from 	{ -moz-transform:rotate(0deg); }	
+	to 	{ -moz-transform:rotate(360deg); }
+}
+
+
+/* CUSTOM
+=====================================*/
+.barraDeNavegacion{
+	border-bottom-color:#555555;
+}
+#eventosEventoMain{
+	-webkit-box-shadow:  0px 0px 5px 2px rgba(0,0,0,.75);
+	-moz-box-shadow:  0px 0px 5px 2px rgba(0,0,0,.75);
+	box-shadow:  0px 0px 5px 2px rgba(0,0,0,.75);	
+}
+
+#eventosEventoMain th{
+	background-color: #252525;
+	text-align:center;
+	color:white;
+	border:1px solid black;
+}
+.eventosEvento{	
+	border-bottom:1px solid #949494;
+	text-align:center;
+}
+.eventosEvento:hover{
+	background-color: #CDCCCC;
+}
+#empresasFiltros{
+	margin-top:15px;
+	margin-left:15px;
+	border:1px solid #C1C1C1;
+	border-radius:2%;
+	padding-top:3%;
+}
