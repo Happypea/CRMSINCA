@@ -61,7 +61,7 @@ module.exports = function(app, express) {
 
 	  });
 	});
-/*
+
 	// Middleware para validar el token
 	apiRouter.use(function(req, res, next) {
 		
@@ -97,7 +97,7 @@ module.exports = function(app, express) {
 		res.json({ message: 'Bienvenido a la API de CRM SINCA' });	
 	});
 
-	*/
+	
 	/**************************************************************************
 		USUARIOS
 	**************************************************************************/
