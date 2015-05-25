@@ -43,6 +43,11 @@
 		<div class="col-sm-6">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.sector">
 		</div>
+	</div>		<div class="form-group">
+		<label class="col-sm-2 control-label">Tipo de servicio</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="empresa.empresaData.actividad">
+		</div>
 	</div>	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Descripcion de la situacion</label><br>
@@ -69,7 +74,7 @@
 					<th>Nombre</th>
 					<th>Telefono</th>
 					<th>Email</th>
-					<th class="col-sm-2">Acciones</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -95,8 +100,8 @@
 	
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
-			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'">Crear empresa</button>
-			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'edit'">Actualizar empresa</button>
+			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" href="/empresas">Crear empresa</button>
+			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'edit'" href="/empresas">Actualizar empresa</button>
 		</div>
 	</div>
 

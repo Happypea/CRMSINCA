@@ -12,6 +12,7 @@ var EmpresaSchema   = new Schema({
 	nombre: { type:String, required:true, index:{ unique:true}},
 	Ubiciudad:String,
 	Ubizip:String,
+	actividad:String,
 	Ubicalle:String,
 	sector:String,
 	targetE:Boolean,

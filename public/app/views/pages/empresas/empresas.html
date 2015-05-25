@@ -12,7 +12,7 @@
 </div>
 <div class="leftcol col-xs-12" id="empresasMain">
 
-	<div id="empresasBuscador" class="col-xs-12">
+	<div id="empresasBuscador" class="col-xs-12" style="margin:10px auto;">
 		<span class="col-xs-2">
 			<input type="text" ng-model='search' class="col-xs-12 buscadorEmpresasInput"/>
 		</span>
@@ -27,11 +27,11 @@
 			<thead>
 				<tr>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombre'"></i> Nombre</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'website'"></i> Web</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'sector'"></i> Sector</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'Ubiciudad'"></i> Ciudad</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'targetE'"></i> Cliente potencial</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'cliente'"></i> Cliente</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombreC1'"></i> Contacto</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'telefonoC1'"></i> Telefono </th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'emailC1'"></i> Email</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'actividad'"></i> Tipo de servicio</th>
+					
 				
 					<th class="col-sm-2">Acciones</th>
 				</tr>
@@ -39,11 +39,11 @@
 			<tbody>
 				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.cliente ? 'success' :  buss.targetE ?  'info':'';">
 					<td>{{ buss.nombre }}</td>
-					<td>{{ buss.website}}</td>
-					<td>{{ buss.sector }}</td>
-					<td>{{ buss.Ubiciudad }}</td>
-					<td>{{ buss.targetE }}</td>
-					<td>{{ buss.cliente }}</td>
+					<td>{{ buss.nombreC1 }}<br>{{ buss.nombreC2 }}</td>
+					<td>{{ buss.telefonoC1  }}<br>{{buss.telefonoC2 }}</td>
+					<td>{{ buss.emailC1  }}<br>{{buss.emailC2 }}</td>
+					<td>{{ buss.actividad }}</td>
+					
 					
 
 					<td >
