@@ -29,18 +29,22 @@
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombre'"></i> Nombre</th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'website'"></i> Web</th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'sector'"></i> Sector</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'targetE'"></i> Target</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'Ubiciudad'"></i> Ciudad</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'targetE'"></i> Cliente potencial</th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'cliente'"></i> Cliente</th>
+				
 					<th class="col-sm-2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search ">
+				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.cliente ? 'success' :  buss.targetE ?  'info':'';">
 					<td>{{ buss.nombre }}</td>
 					<td>{{ buss.website}}</td>
-					<td>{{buss.sector}}</td>
-					<td><input type="checkbox" checked="{{buss.targetE}}" disabled ></td>
-					<td><input type="checkbox" checked="{{buss.cliente}}" disabled ></td>
+					<td>{{ buss.sector }}</td>
+					<td>{{ buss.Ubiciudad }}</td>
+					<td>{{ buss.targetE }}</td>
+					<td>{{ buss.cliente }}</td>
+					
 
 					<td >
 						<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
