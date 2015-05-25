@@ -14,7 +14,7 @@
 
 	<div id="empresasBuscador" class="col-xs-12">
 		<span class="col-xs-2">
-			<input type="text" class="col-xs-12 buscadorEmpresasInput">
+			<input type="text" ng-model='search' class="col-xs-12 buscadorEmpresasInput"/>
 		</span>
 		<span class="col-xs-2">
 			<i class="fa fa-search"></i>
@@ -23,18 +23,25 @@
 	
 	<div id="listaEmpresas" class="col-xs-12">
 		
-		<table class="table table-condensed table-striped" ng-show="empresa.empresas">
+		<table class="table table-condensed table-bordered" ng-show="empresa.empresas" ng-init="ordenacion = 'nombre'">
 			<thead>
 				<tr>
-					<th>Nombre</th>
-					<th>Web</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombre'"></i> Nombre</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'website'"></i> Web</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'sector'"></i> Sector</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'targetE'"></i> Target</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'cliente'"></i> Cliente</th>
 					<th class="col-sm-2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="buss in empresa.empresas">
+				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search ">
 					<td>{{ buss.nombre }}</td>
 					<td>{{ buss.website}}</td>
+					<td>{{buss.sector}}</td>
+					<td><input type="checkbox" checked="{{buss.targetE}}" disabled ></td>
+					<td><input type="checkbox" checked="{{buss.cliente}}" disabled ></td>
+
 					<td >
 						<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
 						<a href="#" ng-click="empresa.deleteEmpresa(buss._id)" class="btn btn-default btn-sm col-xs-12">Borrar</a>
