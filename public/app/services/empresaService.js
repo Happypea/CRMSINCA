@@ -23,7 +23,12 @@ angular.module('empresaService', [])
 
 	// delete a user
 	empresaFactory.delete = function(id) {
-		return $http.delete('/api/empresas/' + id);
+		var confirmacion = confirm("¿Estas seguro de que deseas borrar esta empresa?\nEsta accion borrara la empresa y todos sus datos permanentemente.");
+		if(confirmacion){
+			return $http.delete('/api/empresas/' + id);
+		}else{
+			return $http.get('/api/empresas/');
+		}
 	};
 	return empresaFactory;
 })
