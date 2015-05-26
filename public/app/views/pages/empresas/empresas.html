@@ -25,6 +25,7 @@
 			<thead>
 				<tr>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombre'"></i> Nombre</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'estado'"></i> Relacion </th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombreC1'"></i> Contacto</th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'telefonoC1'"></i> Telefono </th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'emailC1'"></i> Email</th>
@@ -35,16 +36,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.cliente ? 'success' :  buss.targetE ?  'info':'';">
-					<td>{{ buss.nombre }}</td>
-					<td>{{ buss.nombreC1 }}<br>{{ buss.nombreC2 }}</td>
-					<td>{{ buss.telefonoC1  }}<br>{{buss.telefonoC2 }}</td>
-					<td>{{ buss.emailC1  }}<br>{{buss.emailC2 }}</td>
-					<td>{{ buss.actividad }}</td>
-					
-					
-
-					<td >
+				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.estado=='cliente' ? 'success' :  buss.estado=='potencial' ?  'info':'';">
+					<td>{{ buss.nombre | capitalize }}</td>
+					<td>{{ buss.estado | capitalize }}</td>
+					<td>{{ buss.nombreC1 | capitalize}}<hr ng-if="buss.nombreC2">{{ buss.nombreC2 | capitalize}}</td>
+					<td>{{ buss.telefonoC1  }}<hr ng-if="buss.telefonoC2">{{buss.telefonoC2 }}</td>
+					<td>{{ buss.emailC1 | lowercase}}<hr ng-if="buss.emailC2">{{ buss.emailC2 | lowercase}}</td>
+					<td>{{ buss.actividad | capitalize}}</td>
+					<td>
 						<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
 						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-12">Borrar</a>
 					</td>

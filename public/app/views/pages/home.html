@@ -13,11 +13,11 @@
 	<div class="col-lg-12">		
 			<table class="col-lg-12 col-md-12 col-xs-12 col-sm-12 table-bordered" id="eventosEventoMain" ng-controller="eventoController as eventos"> 
 				<th colspan="5">CALENDARIO DE EVENTOS</th>				
-				<tr class="eventosEvento" ng-repeat="cita in eventos.evento">			
+				<tr class="eventosEvento" ng-repeat="cita in eventos.evento | orderBy: nombre">			
 
 					<td>{{cita.nombre}}</td>
 					<td>{{cita.fecha | date: 'dd/MM/yyyy'}}</td>
-					<td>{{cita.descripcion}}</td>
+					<!--td>{{cita.descripcion}}</td-->
 					<td>{{cita.datos}}</td>
 				
 					<td><a href="#" ng-click="eventos.deleteEvento(cita._id)" class="btn btn-danger btn-sm ">Borrar</a></td>

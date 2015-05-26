@@ -194,33 +194,33 @@ module.exports = function(app, express) {
 	apiRouter.route('/empresas')		
 		.post(function(req, res) {			
 			var empresa       = new Empresa();	
-			empresa.nombre        = req.body.nombre	
-			empresa.sector        = req.body.sector;  
-			empresa.targetE       = req.body.targetE;  
-			empresa.cliente       = req.body.cliente;  
-			empresa.actividad     = req.body.actividad;  
-			empresa.website       = req.body.website;  
-			empresa.interes       = req.body.interes;
-			empresa.descripcionSituacion = req.body.descripcionSituacion;  
-			empresa.targetE       = req.body.targetE;  
-			empresa.Ubiciudad     = req.body.Ubiciudad;
-			empresa.Ubizip        = req.body.Ubizip;
-			empresa.Ubicalle      = req.body.Ubicalle;			
-			empresa.nombreC1      = req.body.nombreC1;
-			empresa.telefonoC1    = req.body.telefonoC1;
-			empresa.emailC1       = req.body.emailC1;
-			empresa.nombreC2      = req.body.nombreC2;
-			empresa.telefonoC2    = req.body.telefonoC2;
-			empresa.emailC2       = req.body.emailC2;
-			empresa.nombreP1      = req.body.nombreP1;
-			empresa.fechaP1       = req.body.fechaP1;
-			empresa.descripcionP1 = req.body.descripcionP1;
-			empresa.archivoP1     = req.body.archivoP1;
-			empresa.nombreO1      = req.body.nombreO1;
-			empresa.descripcionO1 = req.body.descripcionO1;
-			empresa.fechaO1       = req.body.fechaO1;
-			empresa.archivoO1     = req.body.archivoO1;
-			empresa.terminadoO1   = req.body.terminadoO1;
+			empresa.nombre               = req.body.nombre	
+			empresa.sector               = req.body.sector;  
+			//empresa.targetE              = req.body.targetE;  
+			//empresa.cliente              = req.body.cliente;  
+			empresa.estado				 = req.body.estado;
+			empresa.actividad            = req.body.actividad;  
+			empresa.website              = req.body.website;  
+			empresa.interes              = req.body.interes;
+			empresa.descripcionSituacion = req.body.descripcionSituacion;  			  
+			empresa.Ubiciudad            = req.body.Ubiciudad;
+			empresa.Ubizip               = req.body.Ubizip;
+			empresa.Ubicalle             = req.body.Ubicalle;			
+			empresa.nombreC1             = req.body.nombreC1;
+			empresa.telefonoC1           = req.body.telefonoC1;
+			empresa.emailC1              = req.body.emailC1;
+			empresa.nombreC2             = req.body.nombreC2;
+			empresa.telefonoC2           = req.body.telefonoC2;
+			empresa.emailC2              = req.body.emailC2;
+			empresa.nombreP1             = req.body.nombreP1;
+			empresa.fechaP1              = req.body.fechaP1;
+			empresa.descripcionP1        = req.body.descripcionP1;
+			empresa.archivoP1            = req.body.archivoP1;
+			empresa.nombreO1             = req.body.nombreO1;
+			empresa.descripcionO1        = req.body.descripcionO1;
+			empresa.fechaO1              = req.body.fechaO1;
+			empresa.archivoO1            = req.body.archivoO1;
+			empresa.terminadoO1          = req.body.terminadoO1;
 //			
 			//empresa.proyectos.nombreP      = req.body.nombrePro;
 			//empresa.proyectos.fechaP       = req.body.fechaPro;
@@ -271,24 +271,29 @@ module.exports = function(app, express) {
 				if (err) res.send(err);
 
 				// set the new user information if it exists in the request
-				if(req.body.nombre ) empresa.nombre              = req.body.nombre; 
-				if(req.body.Ubiciudad ) empresa.Ubiciudad        = req.body.Ubiciudad; 
-				if(req.body.Ubizip) empresa.Ubizip               = req.body.Ubizip; 
-				if(req.body.Ubicalle) empresa.Ubicalle           = req.body.Ubicalle; 
-				if(req.body.sector) empresa.sector               = req.body.sector; 
-				if(req.body.targetE) empresa.targetE             = req.body.targetE; 
+				if(req.body.nombre ) empresa.nombre                            = req.body.nombre; 
+				if(req.body.Ubiciudad ) empresa.Ubiciudad                      = req.body.Ubiciudad; 
+				if(req.body.Ubizip) empresa.Ubizip                             = req.body.Ubizip; 
+				if(req.body.Ubicalle) empresa.Ubicalle                         = req.body.Ubicalle; 
+				if(req.body.sector) empresa.sector                             = req.body.sector; 
+				//if(req.body.targetE) empresa.targetE                           = req.body.targetE.value; 
+				//if(req.body.cliente) empresa.cliente                           = req.body.cliente.value;
+				if(req.body.estado)	empresa.estado							   = req.body.estado;
 				if(req.body.descripcionSituacion) empresa.descripcionSituacion = req.body.descripcionSituacion;
-				if(req.body.cliente) empresa.cliente             = req.body.cliente; 
-				if(req.body.actividad) empresa.actividad     = req.body.actividad;  
-				if(req.body.website) empresa.website             = req.body.website; 
-				if(req.body.interes) empresa.interes             = req.body.interes; 
-				if(req.body.nombreC1) empresa.nombreC1           = req.body.nombreC1;
-				if(req.body.telefonoC1) empresa.telefonoC1       = req.body.telefonoC1;
-				if(req.body.emailC1) empresa.emailC1             = req.body.emailC1;
+				 
+				if(req.body.actividad) empresa.actividad                       = req.body.actividad;  
+				if(req.body.website) empresa.website                           = req.body.website; 
+				if(req.body.interes) empresa.interes                           = req.body.interes;	
 
-				if(req.body.nombreC2) empresa.nombreC2      = req.body.nombreC2;
-				if(req.body.telefonoC2) empresa.telefonoC2    = req.body.telefonoC2;
-				if(req.body.emailC2) empresa.emailC2       = req.body.emailC2;
+				if(req.body.nombreC1) empresa.nombreC1                         = req.body.nombreC1;
+				if(req.body.telefonoC1) empresa.telefonoC1                     = req.body.telefonoC1;
+				if(req.body.emailC1) empresa.emailC1                           = req.body.emailC1;
+
+				if(req.body.nombreC2) empresa.nombreC2                         = req.body.nombreC2;
+				if(req.body.telefonoC2) empresa.telefonoC2                     = req.body.telefonoC2;
+				if(req.body.emailC2) empresa.emailC2                           = req.body.emailC2;
+
+
 				if(req.body.nombreP1) empresa.nombreP1           = req.body.nombreP1;
 				if(req.body.fechaP1) empresa.fechaP1             = req.body.fechaP1;
 				if(req.body.descripcionP1) empresa.descripcionP1 = req.body.descripcionP1;
@@ -298,6 +303,8 @@ module.exports = function(app, express) {
 				if(req.body.fechaO1) empresa.fechaO1             = req.body.fechaO1;
 				if(req.body.archivoO1) empresa.archivoO1         = req.body.archivoO1;
 				if(req.body.terminadoO1) empresa.terminadoO1     = req.body.terminadoO1;
+				
+//
 				//if(req.body.contactos) empresa.contactos   				= req.body.contactos;
 				//if(req.body.nombreC) empresa.contactos.nombreC 		   = req.body.nombreC; 
 				//if(req.body.telefonoC) empresa.contactos.telefonoC       = req.body.telefonoC; 

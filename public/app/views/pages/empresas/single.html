@@ -50,22 +50,33 @@
 		</div>
 	</div>	
 	<div class="form-group">
-		<label class="col-sm-2 control-label">Descripcion de la situacion</label><br>
+		<label class="col-sm-2 control-label">Relaci&oacute;n</label>
+		<div class="col-sm-6">
+			<select class="form-control" ng-model="empresa.empresaData.estado">
+				<option value="lead">Lead</option>
+				<option value="potencial">Potencial</option>
+				<option value="cliente">Cliente</option>
+			</select>
+		</div>
+	</div>	
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Descripcion de la situacion</label>
 		<div class="col-sm-6">
 			<textarea class="form-control" ng-model="empresa.empresaData.descripcionSituacion"></textarea>
 		</div>
 	</div>	
 
-	<div class="form-group">
+	
+	<!--div class="form-group">
 		<label class="col-sm-2 control-label">Cliente potencial</label>
 		<div class="col-sm-2">
-			<input type="checkbox" class="form-control" ng-model="empresa.empresaData.targetE">
+			<input type="checkbox" class="form-control" ng-true-value="true" ng-false-value="false" ng-model="empresa.empresaData.targetE" >
 		</div>
 		<label class="col-sm-2 control-label">Cliente</label>
 		<div class="col-sm-2">
-			<input type="checkbox" class="form-control" ng-model="empresa.empresaData.cliente">
+			<input type="checkbox" class="form-control" ng-true-value="true" ng-false-value="false" ng-model="empresa.empresaData.cliente">
 		</div>
-	</div>		
+	</div-->		
 	<div class="form-group">
 			<h2>Contacto</h2>	
 		<table class="table table-striped">
@@ -100,8 +111,8 @@
 	
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
-			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" href="/empresas">Crear empresa</button>
-			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'edit'" href="/empresas">Actualizar empresa</button>
+			<a ng-href="/empresas"><button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" >Crear empresa</button></a>
+			<a ng-href="/empresas"><button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'edit'" ng-href="/empresas">Actualizar empresa</button></a>
 		</div>
 	</div>
 

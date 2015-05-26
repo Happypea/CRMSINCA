@@ -49,7 +49,6 @@ angular.module('empresaCtrl', ['empresaService'])
 
 })
 
-
 .controller('empresaEditController', function($routeParams, Empresa) {
 
 	var vm = this;
