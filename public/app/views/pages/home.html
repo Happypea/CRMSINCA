@@ -10,7 +10,7 @@
 </div>
 
 <div ng-if="main.loggedIn">
-	<div class="col-lg-12">		
+	<div class="calendarioEventosMain" style="height:60vh;overflow:auto;">		
 			<table class="col-lg-12 col-md-12 col-xs-12 col-sm-12 table-bordered" id="eventosEventoMain" ng-controller="eventoController as eventos"> 
 				
 				<thead>
@@ -18,13 +18,13 @@
 				<tr>
 					<th> Nombre</th>
 					<th> Fecha </th>
-					<th>datos</th>
+					<th> Datos</th>
 	
 					<th class="col-sm-2">Acciones</th>
 				</tr>
-			</thead>			
-				<tr class="eventosEvento" ng-repeat="cita in eventos.evento  | orderBy: 'fecha' " ng-if="cita.fecha ? this: cita.fecha='2099-10-19T06:46:00+00:00';">		
-
+			</thead>
+			<tbody  style="padding:0;">			
+				<tr class="eventosEvento" ng-repeat="cita in eventos.evento  | orderBy: 'fecha' " ng-if="cita.fecha ? this: cita.fecha='2099-10-19T06:46:00+00:00';">
 					<td>{{cita.nombre}}</td>
 					<td ng-if="cita.fecha=='2099-10-19T06:46:00+00:00' ? cita.fecha='Sin fecha':this;">{{(cita.fecha | date: 'dd/MM/yyyy')}}</td>
 					<td>{{cita.datos}}</td>
@@ -32,6 +32,7 @@
 				
 					<td><a href="#" ng-click="eventos.deleteEvento(cita._id)" class="btn btn-danger btn-sm ">Borrar</a></td>
 				</tr>
+				</tbody>
 			</table>		
 	</div>
 	

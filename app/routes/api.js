@@ -65,7 +65,7 @@ module.exports = function(app, express) {
 	// Middleware para validar el token
 	apiRouter.use(function(req, res, next) {
 		
-		console.log('Acceso de usuario a la aplicacion');
+		console.log('Acceso de usuario a la aplicacion' );
 
 	  // Comprobar le toquen de varias maneras por si acaso
 	  var token = req.body.token || req.query.token || req.headers['x-access-token'];
