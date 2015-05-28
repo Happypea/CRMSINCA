@@ -2,6 +2,7 @@ var bodyParser 	= require('body-parser');
 var User       	= require('../models/user');
 var Empresa 	= require('../models/empresa');
 var Evento      = require('../models/evento');
+
 var jwt        	= require('jsonwebtoken');
 var config     	= require('../../config');
 
@@ -352,12 +353,25 @@ module.exports = function(app, express) {
 		.post(function(req, res) {
 			
 			var evento = new Evento();		
+			var probando = [];
 
 			evento.nombre     = req.body.nombre;  
 			evento.fecha      = req.body.fecha; 
 			evento.descripcion = req.body.descripcion; 
 			evento.datos      = req.body.datos;
 			evento.tipo       = req.body.tipo;
+
+
+			var newProbando = {
+				name : req.body.probandoname,
+				surname : req.body.probandosurname
+			}; 
+
+			evento.probando.push(newProbando);
+				res.json(true);
+		
+	
+
 
 			evento.save(function(err) {
 				if (err) {					
@@ -404,6 +418,8 @@ module.exports = function(app, express) {
 				if (req.body.descrpcion) evento.descrpcion = req.body.descrpcion; 
 				if (req.body.datos) evento.datos           = req.body.datos;
 				if (req.body.tipo) evento.tipo      		 = req.body.tipo;
+
+
 				
 				
 				evento.save(function(err) {
