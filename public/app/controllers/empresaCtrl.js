@@ -49,16 +49,64 @@ angular.module('empresaCtrl', ['empresaService'])
 
 })
 
+.controller('empresaViewController', function($routeParams, Empresa) {
+
+	var vm = this;
+
+	vm.type = 'view';
+
+	Empresa.get($routeParams.empresa_id)
+		.success(function(data) {
+			vm.empresaData = data;
+		});
+
+	vm.deleteEmpresa = function(id) {
+	vm.processing = true;
+
+	Empresa.delete(id)
+		.success(function(data) {		
+			Empresa.all()
+				.success(function(data) {
+					vm.processing = false;
+					vm.empresas = data;
+
+				});
+		});
+	};
+
+	
+
+})
+
 .controller('empresaEditController', function($routeParams, Empresa) {
 
 	var vm = this;
 
 	vm.type = 'edit';
 
+	
 	Empresa.get($routeParams.empresa_id)
 		.success(function(data) {
 			vm.empresaData = data;
 		});
+
+	vm.deleteContacto = function(contId, empreId){
+		vm.processing = true;
+		vm.message = '';
+
+		Empresa.deleteContacto(contId, empreId)
+		.success(function(data) {		
+			Empresa.all()
+				.success(function(data) {
+					vm.processing = false;
+					
+					window.location.reload();
+					vm.message=data.message;
+				});
+		});
+	};
+	
+	
 
 	vm.saveEmpresa = function() {
 		vm.processing = true;
@@ -66,11 +114,10 @@ angular.module('empresaCtrl', ['empresaService'])
 
 		Empresa.update($routeParams.empresa_id, vm.empresaData)
 			.success(function(data) {
-				vm.processing = false;
-				
-				vm.empresaData = {};
-				
+				vm.processing = false;		
+								
 				vm.message = data.message;
+				window.location.reload();
 			});
 	};
 

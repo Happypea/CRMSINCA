@@ -54,15 +54,20 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'empresaCreateController',
 			controllerAs: 'empresa'
 		})
-
-		// page to edit a user
+		
 		.when('/empresas/:empresa_id', {
 			templateUrl: 'app/views/pages/empresas/single.html',
 			controller: 'empresaEditController',
 			controllerAs: 'empresa'
 		})
 
+		.when('/empresas/ver/:empresa_id', {
+			templateUrl: 'app/views/pages/empresas/single.html',
+			controller: 'empresaViewController',
+			controllerAs: 'empresa'
+		})
 
+		//Eventos
 		.when('/eventos', {
 			templateUrl: 'app/views/pages/eventos.html',
 			controller: 'eventoController',

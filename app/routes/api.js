@@ -195,6 +195,7 @@ module.exports = function(app, express) {
 	apiRouter.route('/empresas')		
 		.post(function(req, res) {			
 			var empresa       = new Empresa();	
+			
 			empresa.nombre               = req.body.nombre	
 			empresa.sector               = req.body.sector;  
 			//empresa.targetE              = req.body.targetE;  
@@ -206,13 +207,15 @@ module.exports = function(app, express) {
 			empresa.descripcionSituacion = req.body.descripcionSituacion;  			  
 			empresa.Ubiciudad            = req.body.Ubiciudad;
 			empresa.Ubizip               = req.body.Ubizip;
-			empresa.Ubicalle             = req.body.Ubicalle;			
-			empresa.nombreC1             = req.body.nombreC1;
-			empresa.telefonoC1           = req.body.telefonoC1;
-			empresa.emailC1              = req.body.emailC1;
-			empresa.nombreC2             = req.body.nombreC2;
-			empresa.telefonoC2           = req.body.telefonoC2;
-			empresa.emailC2              = req.body.emailC2;
+			empresa.Ubicalle             = req.body.Ubicalle;
+
+			var newContacto = {
+				nombreC: req.body.nombreC1,
+				telefonoC: req.body.telefonoC1,
+				emailC : req.body.emailC1
+			};
+			empresa.contactos.push(newContacto);
+
 			empresa.nombreP1             = req.body.nombreP1;
 			empresa.fechaP1              = req.body.fechaP1;
 			empresa.descripcionP1        = req.body.descripcionP1;
@@ -233,6 +236,8 @@ module.exports = function(app, express) {
 			//empresa.ofertas.fechaO       = req.body.fechaOfe;
 			//empresa.ofertas.archivoO     = req.body.archivoOfe;
 			//empresa.ofertas.terminadoO   = req.body.terminadoOfe;
+			//
+			
 			
 			empresa.save(function(err) {
 				if (err) {					
@@ -285,14 +290,14 @@ module.exports = function(app, express) {
 				if(req.body.actividad) empresa.actividad                       = req.body.actividad;  
 				if(req.body.website) empresa.website                           = req.body.website; 
 				if(req.body.interes) empresa.interes                           = req.body.interes;	
-
-				if(req.body.nombreC1) empresa.nombreC1                         = req.body.nombreC1;
-				if(req.body.telefonoC1) empresa.telefonoC1                     = req.body.telefonoC1;
-				if(req.body.emailC1) empresa.emailC1                           = req.body.emailC1;
-
-				if(req.body.nombreC2) empresa.nombreC2                         = req.body.nombreC2;
-				if(req.body.telefonoC2) empresa.telefonoC2                     = req.body.telefonoC2;
-				if(req.body.emailC2) empresa.emailC2                           = req.body.emailC2;
+				if(req.body.nombreC1){					
+					newContacto = {
+						nombreC: req.body.nombreC1,
+						telefonoC: req.body.telefonoC1,
+						emailC : req.body.emailC1
+					};
+					empresa.contactos.push(newContacto);
+				}
 
 
 				if(req.body.nombreP1) empresa.nombreP1           = req.body.nombreP1;
@@ -340,7 +345,27 @@ module.exports = function(app, express) {
 
 				res.json({ message: 'Empresa borrada' });
 			});
+			
 		});
+
+	apiRouter.route('/empresas/cont/:contacto_id/:empresa_id')	
+		.delete(function(req, res) {	
+
+			Empresa.findById(req.params.empresa_id,  function(err, empresa) {
+				
+				if (err) res.send(err);			
+				var contId = req.params.contacto_id;
+				empresa.contactos.pull({ _id: contId });
+				res.json({ message: 'Contacto borrado' });
+				empresa.save(function(err) {
+					if (err) res.send(err);				
+					
+				});
+				
+			});
+		});
+				
+		
 
 	 /***********************************************************************\
 	|	EVENTOS																  |
@@ -360,6 +385,7 @@ module.exports = function(app, express) {
 			evento.descripcion = req.body.descripcion; 
 			evento.datos      = req.body.datos;
 			evento.tipo       = req.body.tipo;
+			evento.empresaID 	  = req.body.empresaID;
 
 
 			var newProbando = {

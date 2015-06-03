@@ -11,6 +11,7 @@ var EventoSchema   = new Schema({
 	descripcion:String,
 	datos: String,
 	tipo: String,
+	empresaID: {type: Schema.Types.ObjectId, ref: 'Empresa'},
 	probando:[probandoSchema]
 });
 

@@ -11,17 +11,17 @@ angular.module('empresaService', [])
 		return $http.get('/api/empresas/');
 	};
 
-	// create a user
+	
 	empresaFactory.create = function(empresaData) {
 		return $http.post('/api/empresas/', empresaData);
 	};
 
-	// update a user
+	
 	empresaFactory.update = function(id, empresaData) {
 		return $http.put('/api/empresas/' + id, empresaData);
 	};
 
-	// delete a user
+	
 	empresaFactory.delete = function(id) {
 		var confirmacion = confirm("¿Estas seguro de que deseas borrar esta empresa?\n¡Esta accion borrara la empresa y todos sus datos permanentemente!");
 		if(confirmacion){
@@ -30,5 +30,17 @@ angular.module('empresaService', [])
 			return $http.get('/api/empresas/');
 		}
 	};
+
+	empresaFactory.deleteContacto = function(idcont, idempresa){
+		var confirmacion = confirm("¿Estas seguro de que deseas borrar este contacto?"+
+									"\n¡Esta accion borrara el contacto y todos sus datos permanentemente!");
+		if(confirmacion){
+			return $http.delete('/api/empresas/cont/' + idcont+'/'+idempresa);
+		}else{
+			return $http.get('/api/empresas/');
+		}
+		
+	}
+
 	return empresaFactory;
 })

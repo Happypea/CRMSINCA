@@ -44,7 +44,8 @@
 					<td>{{ buss.emailC1 | lowercase}}<hr ng-if="buss.emailC2">{{ buss.emailC2 | lowercase}}</td>
 					<td>{{ buss.actividad | capitalize}}</td>
 					<td>
-						<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
+						<a ng-href="/empresas/ver/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
+
 						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-12">Borrar</a>
 					</td>
 				</tr>

@@ -1,9 +1,23 @@
 <div class="page-header">
 	<h1 ng-if="empresa.type == 'create'">Crear nueva empresa</h1>
 	<h1 ng-if="empresa.type == 'edit'">Editar empresa</h1>
+	<h1 ng-if="empresa.type == 'view'">{{empresa.empresaData.nombre}}</h1>
+
+	<!--
+
+	<a ng-href="/empresas/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
+						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-12">Borrar</a>
+
+						-->
 </div>
 
-<form class="form-horizontal" ng-submit="empresa.saveEmpresa()">	
+<form class="form-horizontal" ng-submit="empresa.saveEmpresa()" ng-if="empresa.type != 'view'">	
+	<div class="form-group" ng-show="false">
+		<label class="col-sm-2 control-label">Id</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" ng-model="empresa.empresaData._id">
+		</div>
+	</div>
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Nombre</label>
 		<div class="col-sm-6">
@@ -78,50 +92,108 @@
 		</div>
 	</div-->		
 	<div class="form-group">
-			<h2>Contacto</h2>	
-		<table class="table table-striped">
-			<thead>
+			<label class="col-sm-2 control-label">Contactos</label>	
+			<div class="col-sm-6">
+		<table class="table table-condensed">
+			<!--thead>
 				<tr>
 					<th>Nombre</th>
 					<th>Telefono</th>
-					<th>Email</th>
-					
+					<th>Email</th>					
 				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.nombreC1"></td>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.telefonoC1"></td>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.emailC1"></td>
-					<td >
-						
-					</td>
+			</thead-->
+			<tbody>				
+				<tr  ng-show="empresa.empresaData.contactos">
+					<th>Nombre</th>
+					<th>Telefono</th>
+					<th>Email</th>		
+					<th></th>			
 				</tr>
-				<tr>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.nombreC2"></td>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.telefonoC2"></td>
-					<td><input type="text" class="form-control" ng-model="empresa.empresaData.emailC2"></td>
-					<td >
-						
-					</td>
-				</tr>
+				<tr ng-repeat="contacto in empresa.empresaData.contactos">
+					<td><p class="textoNormal">{{contacto.nombreC}}</p></td>
+					<td><p ng-if="contacto.telefonoC">{{contacto.telefonoC}}</p></td>
+					<td><p ng-if="contacto.emailC">{{contacto.emailC}}</p></td>	
+					<td ><a ng-click="empresa.deleteContacto(contacto._id, empresa.empresaData._id)"  class="btn btn-sm btn-danger btn-block" >Borrar</a></td>							
+				</tr>	
+				<tr><td colspan="4" ><span class="btn btn-sm btn-default btn-block" ng-click="isReplyFormOpen = !isReplyFormOpen">Nuevo contacto</span></td></tr>
+				
+				<tr ng-show="isReplyFormOpen">
+					<td><input type="text" class="form-control" ng-model="empresa.empresaData.nombreC1" placeholder="Nombre"></td>
+					<td><input type="text" class="form-control" ng-model="empresa.empresaData.telefonoC1" placeholder="Tel&eacute;fono"></td>
+					<td><input type="text" class="form-control" ng-model="empresa.empresaData.emailC1" placeholder="Email"></td>					
+					<td><button ng-if="empresa.type != 'create'" type="submit" class="btn btn-success btn-sm btn-block">Añadir </button></td>					
+				</tr>			
 			</tbody>
-		</table>		
+		</table>
+		</div>		
 	</div>	
 	
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
-			<a ng-href="/empresas"><button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" >Crear empresa</button></a>
-			<a ng-href="/empresas"><button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'edit'" ng-href="/empresas">Actualizar empresa</button></a>
+			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" ng-href="/empresas" >Crear empresa</button>
+			<button type="submit" class="btn btn-success btn-lg col-sm-5" ng-if="empresa.type == 'edit'" ng-href="/empresas">Actualizar empresa</button>
+			<a class="btn btn-default btn-lg col-sm-5 col-sm-offset-2" ng-href="/empresas/ver/{{empresa.empresaData._id}}">Volver</a>
 		</div>
 	</div>
 
 </form>
 
+<div ng-if="empresa.type=='view'" id="empresasShowView">
+	<div class="col-xs-6" id="empresaShowIzq">
+		<div class="col-xs-12 panel panel-primary"> 
+			<div class="panel-heading"><h2 class="panel-title text-center">Datos generales</h2></div>		
+			<div class="textoNormal panel-body">
+				<p ng-show="empresa.empresaData.nombre"><b>Nombre:</b> {{empresa.empresaData.nombre | capitalize}}</p>
+				<p ng-show="empresa.empresaData.actividad"><b>Actividad:</b> {{empresa.empresaData.actividad | capitalize}}</p>
+				<p ng-show="empresa.empresaData.sector"><b>Sector:</b> {{empresa.empresaData.sector | capitalize}}</p>
+				<p ng-show="empresa.empresaData.estado"><b>Estado:</b> {{empresa.empresaData.estado | capitalize}}</p>
+				<p ng-show="empresa.empresaData.website"><b>P&aacute;gina Web:</b> {{empresa.empresaData.website | capitalize}}</p>
+				<p ng-show="empresa.empresaData.Ubiciudad"><b>Ciudad:</b> {{empresa.empresaData.Ubiciudad | capitalize}}</p>
+				<p ng-show="empresa.empresaData.Ubicalle"><b>Calle:</b> {{empresa.empresaData.Ubicalle | capitalize}}</p>
+				<p ng-show="empresa.empresaData.Ubizip"><b>Codigo postal:</b> {{empresa.empresaData.Ubizip | capitalize}}</p>
+			</div>
+		</div>
+		<div class="col-xs-12 panel panel-primary">
+			<div class="panel-heading"><h2 class="panel-title text-center">Contactos</h2></div>
+			<div class="panel-body textoNormal">
+				<div ng-repeat="contacto in empresa.empresaData.contactos">
+				<span data-toggle="collapse" href="#collapse{{ $index + 1 }}" aria-expanded="false" aria-controls="collapseExample">
+					<i class="fa fa-plus-square"></i> <span class="textoNormal"> {{contacto.nombreC | capitalize}}</span>
+				</span>
+				<div class="collapse" id="collapse{{ $index + 1 }}">
+					<div class="well">						
+						<p ng-if="contacto.telefonoC"><b>Telefono:</b> {{contacto.telefonoC}}</p>
+						<p ng-if="contacto.emailC"><b>E-mail:</b> {{contacto.emailC}}</p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 panel panel-primary">
+			<div class="panel-heading"><h2 class="panel-title text-center">Eventos</h2></div>
+			<div class="panel-body textoNormal">
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-6" id="empresaShowDch">	
+	<div class="col-xs-12 jumbotron text-center"><h2>Proyectos</h2></div>
+	<div class="col-xs-12 jumbotron text-center"><h2>Ofertas</h2></div>
+	</div>
+	
+
+	
+
+	<div class="col-xs-12">
+		<a ng-href="/empresas/{{ empresa.empresaData._id }}" class="btn btn-default btn-sm col-xs-6 ">Editar</a>
+	
+		<a href="/empresas"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(empresa.empresaData._id)"  class="btn btn-default btn-sm btn-danger col-xs-6">Borrar</a>
+	</div>
+</div>
+
 <div class="row show-hide-message" ng-show="empresa.message">
 	<div class="col-sm-6 col-sm-offset-2">
 		
-		<div class="alert alert-info">
+		<div class="alert alert-info alert-dismissible">
 			{{ empresa.message }}
 		</div>
 

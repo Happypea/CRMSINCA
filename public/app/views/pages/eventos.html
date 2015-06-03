@@ -16,10 +16,19 @@
 	<div class="form-group">
 		<label class="col-sm-2 control-label">datos de contacto</label>
 		<div class="col-sm-6">
-			<input type="text" class="form-control" ng-model="evento.eventoData.descripcion">
+			<input type="text" class="form-control" ng-model="evento.eventoData.datos">
 		</div>
 	</div>
-<!-- PROBANDO NESTED ARRAYS -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Empresa relacionada</label>
+		<div class="col-sm-6" ng-controller="empresaController as empresa">
+			<select class="form-control" ng-model="evento.eventoData.empresaID" onChange="alert(this.value)">
+				<option ng-repeat="ciss in empresa.empresas" value="{{ciss._id}}" >{{ciss.nombre}}</option>
+			</select>
+		</div>
+	</div>
+
+<!-- PROBANDO NESTED ARRAYS >
 	<div class="form-group">
 		<label class="col-sm-2 control-label">probando name</label>
 		<div class="col-sm-6">
@@ -35,11 +44,11 @@
 	</div>
 
 
-	<!-- PROBANDO NESTED ARRAYS -->
+	< PROBANDO NESTED ARRAYS -->
 	<div class="form-group">
 		<label class="col-sm-2 control-label">descripcion</label>
 		<div class="col-sm-6">
-			<textarea class="form-control" ng-model="evento.eventoData.datos"></textarea>
+			<textarea class="form-control" ng-model="evento.eventoData.descripcion"></textarea>
 		</div>
 	</div>
 
