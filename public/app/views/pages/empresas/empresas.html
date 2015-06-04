@@ -1,9 +1,6 @@
 <h1>
 	Empresas 
-	<a href="/empresas/create" class="btn btn-default">
-		<span class="glyphicon glyphicon-plus"></span> 
-		Nueva empresa.
-	</a>
+	
 </h1>
 
 <div class="jumbotron text-center" ng-show="empresa.processing">
@@ -29,9 +26,7 @@
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombreC1'"></i> Contacto</th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'telefonoC1'"></i> Telefono </th>
 					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'emailC1'"></i> Email</th>
-					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'actividad'"></i> Tipo de servicio</th>
-					
-				
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'actividad'"></i> Tipo de servicio</th>	
 					<th class="col-sm-2">Acciones</th>
 				</tr>
 			</thead>
@@ -39,19 +34,22 @@
 				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.estado=='cliente' ? 'success' :  buss.estado=='potencial' ?  'info':'';">
 					<td>{{ buss.nombre | capitalize }}</td>
 					<td>{{ buss.estado | capitalize }}</td>
-					<td>{{ buss.nombreC1 | capitalize}}<hr ng-if="buss.nombreC2">{{ buss.nombreC2 | capitalize}}</td>
-					<td>{{ buss.telefonoC1  }}<hr ng-if="buss.telefonoC2">{{buss.telefonoC2 }}</td>
-					<td>{{ buss.emailC1 | lowercase}}<hr ng-if="buss.emailC2">{{ buss.emailC2 | lowercase}}</td>
+					<td>{{ buss.contactos[0].nombreC | capitalize}}</td>
+					<td>{{ buss.contactos[0].telefonoC }}</td>
+					<td>{{ buss.contactos[0].emailC}}</td>
 					<td>{{ buss.actividad | capitalize}}</td>
 					<td>
-						<a ng-href="/empresas/ver/{{ buss._id }}" class="btn btn-default btn-sm col-xs-12">Detalles</a><br><br>
+						<a ng-href="/empresas/ver/{{ buss._id }}" class="btn btn-default btn-sm col-xs-5 col-xs-offset-1">Detalles</a>
 
-						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-12">Borrar</a>
+						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-5 col-xs-offset-1">Borrar</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-
+	<a href="/empresas/create" class="btn btn-default btn-block btn-sm">
+		<span class="glyphicon glyphicon-plus"></span> 
+		Nueva empresa.
+	</a>
 	</div>
 </div>
 <!--div class="rightCol col-sm-4 col-xs-12" id="empresasLateral">

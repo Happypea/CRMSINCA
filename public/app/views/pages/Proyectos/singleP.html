@@ -1,0 +1,20 @@
+<div class="page-header">
+	<h1 ng-if="proyecto.type == 'New'">Crear nuevo proyecto para la empresa {{proyecto.empresaData.nombre}}</h1>
+	<h1 ng-if="proyecto.type == 'edit'">asdasdasd</h1>
+
+</div>
+
+<form class="form-horizontal" ng-submit="" ng-if="proyecto.type == 'New'">	
+	<!--
+		Iran todo lo de los proyectos
+		Se le añade automaticamente la ID de la empresa
+
+		Mirar para subir archivos y demas
+
+		el save se puede hacer con empresa.save sin mas
+
+		Proyectos solo afectan a una empresa
+
+	-->
+	Empresa id {{proyecto.empresaData._id}}
+</form>

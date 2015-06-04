@@ -6,6 +6,11 @@ main 					{
 ===================== */
 header .navbar 		{ 
 	border-radius:0;
+	background:#e4e6e9;
+}
+
+.navbar li a:hover{ 	
+	background-color:#fff;
 }
 
 /* NGANIMATE
@@ -53,11 +58,8 @@ header .navbar 		{
 	box-shadow:  0px 0px 5px 2px rgba(0,0,0,.75);	
 }
 
-#eventosEventoMain th{
-	background-color: #252525;
-	text-align:center;
-	color:white;
-	border:1px solid black;
+#eventosEventoMain th{	
+	text-align:center;	
 }
 .eventosEvento{	
 	border-bottom:1px solid #949494;
@@ -84,3 +86,4 @@ header .navbar 		{
 body{
 	padding-bottom:5%;
 }
+thead{background:#B4BFDE;}

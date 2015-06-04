@@ -1,7 +1,7 @@
 <div class="page-header">
-	<h1 ng-if="empresa.type == 'create'">Crear nueva empresa</h1>
-	<h1 ng-if="empresa.type == 'edit'">Editar empresa</h1>
-	<h1 ng-if="empresa.type == 'view'">{{empresa.empresaData.nombre}}</h1>
+	<h1 class="text-center" ng-if="empresa.type == 'create'">Crear nueva empresa</h1>
+	<h1 class="text-center" ng-if="empresa.type == 'edit'">Editar empresa</h1>
+	<h1  class="text-center"ng-if="empresa.type == 'view'">{{empresa.empresaData.nombre}}</h1>
 
 	<!--
 
@@ -20,67 +20,64 @@
 	</div>
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Nombre</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.nombre">
 		</div>
-	</div>
 
-	<div class="form-group">
 		<label class="col-sm-2 control-label">website</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.website">
 		</div>
 	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Sector</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" ng-model="empresa.empresaData.sector">
+		</div>
 
+		<label class="col-sm-2 control-label">Tipo de servicio</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" ng-model="empresa.empresaData.actividad">
+		</div>
+	</div>	
+<hr>
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Ciudad</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.Ubiciudad">
 		</div>
-	</div>
-		
-	<div class="form-group">
+	
 		<label class="col-sm-2 control-label">Codigo postal</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.Ubizip">
 		</div>
 	</div>
 		
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Calle</label>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<input type="text" class="form-control" ng-model="empresa.empresaData.Ubicalle">
 		</div>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Sector</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" ng-model="empresa.empresaData.sector">
-		</div>
-	</div>		<div class="form-group">
-		<label class="col-sm-2 control-label">Tipo de servicio</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" ng-model="empresa.empresaData.actividad">
-		</div>
-	</div>	
+	<hr>
+	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Relaci&oacute;n</label>
-		<div class="col-sm-6">
+		<div class="col-sm-2">
 			<select class="form-control" ng-model="empresa.empresaData.estado">
 				<option value="lead">Lead</option>
 				<option value="potencial">Potencial</option>
 				<option value="cliente">Cliente</option>
 			</select>
 		</div>
-	</div>	
-	<div class="form-group">
+	
 		<label class="col-sm-2 control-label">Descripcion de la situacion</label>
 		<div class="col-sm-6">
 			<textarea class="form-control" ng-model="empresa.empresaData.descripcionSituacion"></textarea>
 		</div>
 	</div>	
 
-	
+	<hr>
 	<!--div class="form-group">
 		<label class="col-sm-2 control-label">Cliente potencial</label>
 		<div class="col-sm-2">
@@ -92,8 +89,8 @@
 		</div>
 	</div-->		
 	<div class="form-group">
-			<label class="col-sm-2 control-label">Contactos</label>	
-			<div class="col-sm-6">
+			<label class="col-sm-2 control-label ">Contactos</label>	
+			<div class="col-sm-9">
 		<table class="table table-condensed">
 			<!--thead>
 				<tr>
@@ -113,7 +110,7 @@
 					<td><p class="textoNormal">{{contacto.nombreC}}</p></td>
 					<td><p ng-if="contacto.telefonoC">{{contacto.telefonoC}}</p></td>
 					<td><p ng-if="contacto.emailC">{{contacto.emailC}}</p></td>	
-					<td ><a ng-click="empresa.deleteContacto(contacto._id, empresa.empresaData._id)"  class="btn btn-sm btn-danger btn-block" >Borrar</a></td>							
+					<td class="col-sm-1"><a href="#"  ng-click="empresa.deleteContacto(contacto._id, empresa.empresaData._id)"  class="btn btn-sm btn-danger btn-block " >Borrar</a></td>							
 				</tr>	
 				<tr><td colspan="4" ><span class="btn btn-sm btn-default btn-block" ng-click="isReplyFormOpen = !isReplyFormOpen">Nuevo contacto</span></td></tr>
 				
@@ -130,9 +127,9 @@
 	
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
-			<button type="submit" class="btn btn-success btn-lg btn-block" ng-if="empresa.type == 'create'" ng-href="/empresas" >Crear empresa</button>
-			<button type="submit" class="btn btn-success btn-lg col-sm-5" ng-if="empresa.type == 'edit'" ng-href="/empresas">Actualizar empresa</button>
-			<a class="btn btn-default btn-lg col-sm-5 col-sm-offset-2" ng-href="/empresas/ver/{{empresa.empresaData._id}}">Volver</a>
+			<button type="submit" class="btn btn-success btn-lg col-sm-5 col-sm-offset-1" ng-if="empresa.type == 'create'" ng-href="/empresas" >Crear empresa</button>
+			<button type="submit" class="btn btn-success btn-lg col-sm-5 col-sm-offset-1" ng-if="empresa.type == 'edit'" ng-href="/empresas">Actualizar empresa</button>
+			<a class="btn btn-default btn-lg col-sm-5 col-sm-offset-1" ng-href="/empresas/ver/{{empresa.empresaData._id}}">Volver</a>
 		</div>
 	</div>
 
@@ -147,7 +144,7 @@
 				<p ng-show="empresa.empresaData.actividad"><b>Actividad:</b> {{empresa.empresaData.actividad | capitalize}}</p>
 				<p ng-show="empresa.empresaData.sector"><b>Sector:</b> {{empresa.empresaData.sector | capitalize}}</p>
 				<p ng-show="empresa.empresaData.estado"><b>Estado:</b> {{empresa.empresaData.estado | capitalize}}</p>
-				<p ng-show="empresa.empresaData.website"><b>P&aacute;gina Web:</b> {{empresa.empresaData.website | capitalize}}</p>
+				<p ng-show="empresa.empresaData.website"><b>P&aacute;gina Web: </b><a href="http://{{empresa.empresaData.website}}" target="_blank">{{empresa.empresaData.website }}</a></p>
 				<p ng-show="empresa.empresaData.Ubiciudad"><b>Ciudad:</b> {{empresa.empresaData.Ubiciudad | capitalize}}</p>
 				<p ng-show="empresa.empresaData.Ubicalle"><b>Calle:</b> {{empresa.empresaData.Ubicalle | capitalize}}</p>
 				<p ng-show="empresa.empresaData.Ubizip"><b>Codigo postal:</b> {{empresa.empresaData.Ubizip | capitalize}}</p>
@@ -158,7 +155,7 @@
 			<div class="panel-body textoNormal">
 				<div ng-repeat="contacto in empresa.empresaData.contactos">
 				<span data-toggle="collapse" href="#collapse{{ $index + 1 }}" aria-expanded="false" aria-controls="collapseExample">
-					<i class="fa fa-plus-square"></i> <span class="textoNormal"> {{contacto.nombreC | capitalize}}</span>
+					<i ng-show="contacto" class="fa fa-plus-square"></i> <span class="textoNormal"> {{contacto.nombreC | capitalize}}</span>
 				</span>
 				<div class="collapse" id="collapse{{ $index + 1 }}">
 					<div class="well">						
@@ -171,12 +168,31 @@
 		</div>
 		<div class="col-xs-12 panel panel-primary">
 			<div class="panel-heading"><h2 class="panel-title text-center">Eventos</h2></div>
-			<div class="panel-body textoNormal">
+			<div class="panel-body textoNormal" ng-controller="eventoController as eventos">
+				<div ng-repeat="evento in eventos.evento | filter: empresa.empresaData._id">
+					<span data-toggle="collapse" href="#collapsee{{ $index + 1 }}" aria-expanded="false" aria-controls="collapseExample">
+						<span class="textoNormal"><i ng-show="evento" class="fa fa-plus-square"></i><strong> {{evento.nombre | capitalize}}</strong> | {{evento.fecha | date: 'dd-MM-yyyy'}}</span>
+						<div class="collapse" id="collapsee{{ $index + 1 }}">
+							<div class="well">					
+								<p ng-if="evento.tipo"><strong>tipo:</strong> {{evento.tipo}}</p>						
+								<p ng-if="evento.datos"><strong>datos:</strong> {{evento.datos}}</p>
+								<p ng-if="evento.descripcion"><strong>descripcion:</strong> {{evento.descripcion}}</p>
+							</div>
+						</div>
+					</span>
+				</div>
+				<br>
+				<div  class="text-center">
+					<a class="btn btn-sm text-center btn-primary" href="/eventos">Crear nuevo evento</a>
+				</div>	
 			</div>
 		</div>
 	</div>
 	<div class="col-xs-6" id="empresaShowDch">	
-	<div class="col-xs-12 jumbotron text-center"><h2>Proyectos</h2></div>
+	<div class="col-xs-12 jumbotron text-center"><h2>Proyectos</h2>
+		<span ng-hide="empresa.empresaData.proyectos[0]"><p>No hay ningun proyecto, crear uno nuevo</p></span><br>
+		<a href="/proyectos/{{empresa.empresaData.proyectos.length}}/{{empresa.empresaData._id}}" class="btn btn-default btn-sm btn-success">Nuevo proyecto</a>
+	</div>
 	<div class="col-xs-12 jumbotron text-center"><h2>Ofertas</h2></div>
 	</div>
 	
