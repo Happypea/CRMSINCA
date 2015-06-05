@@ -191,7 +191,7 @@
 	<div class="col-xs-6" id="empresaShowDch">	
 	<div class="col-xs-12 jumbotron text-center"><h2>Proyectos</h2>
 		<span ng-hide="empresa.empresaData.proyectos[0]"><p>No hay ningun proyecto, crear uno nuevo</p></span><br>
-		<a href="/proyectos/{{empresa.empresaData.proyectos.length}}/{{empresa.empresaData._id}}" class="btn btn-default btn-sm btn-success">Nuevo proyecto</a>
+		<a ng-href="/proyectos/{{empresa.empresaData.proyectos.length}}/{{empresa.empresaData._id}}" class="btn btn-default btn-sm btn-success">Nuevo proyecto</a>
 	</div>
 	<div class="col-xs-12 jumbotron text-center"><h2>Ofertas</h2></div>
 	</div>
