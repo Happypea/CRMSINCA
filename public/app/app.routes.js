@@ -78,17 +78,18 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'eventoControllerFixed',
 			controllerAs: 'evento'
 		})
-		
-		.when('/proyectos/:empresa_id', {
-			templateUrl: 'app/views/pages/proyectos/singleP.html',
-			controller: 'proyectoControllerNew',
-			controllerAs: 'proyecto'
-		})
+		//Proyectos
 		.when('/proyectos', {
-			templateUrl: 'app/views/pages/proyectos/singleP.html',
-			controller: 'proyectoControllerNew',
-			controllerAs: 'proyecto'
-		});
+			templateUrl: 'app/views/pages/Proyectos/proyectos.html',
+			controller: 'empresaController',
+			controllerAs: 'empresa'
+		})
+		.when('/proyectos/:empresa_id', {
+			templateUrl: 'app/views/pages/Proyectos/singleP.html',
+			controller: 'empresaController',
+			controllerAs: 'empresa'
+		})
+		;
 
 
 	$locationProvider.html5Mode(true);
