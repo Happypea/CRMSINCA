@@ -79,7 +79,12 @@ angular.module('app.routes', ['ngRoute'])
 			controllerAs: 'evento'
 		})
 		
-		.when('/proyectos/:numeroProyecto/:empresa_id', {
+		.when('/proyectos/:empresa_id', {
+			templateUrl: 'app/views/pages/proyectos/singleP.html',
+			controller: 'proyectoControllerNew',
+			controllerAs: 'proyecto'
+		})
+		.when('/proyectos', {
 			templateUrl: 'app/views/pages/proyectos/singleP.html',
 			controller: 'proyectoControllerNew',
 			controllerAs: 'proyecto'
