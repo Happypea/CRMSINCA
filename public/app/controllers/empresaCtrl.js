@@ -128,7 +128,7 @@ angular.module('empresaCtrl', ['empresaService'])
 
 //Controllers de los proyectos probablemente haya que sacarlo de aqui y hacer us propio service
 
-.controller('proyectoControllerNew', function($routeParams, Empresa){
+.controller('proyectoControllerNew', function($routeParams){
 	var vm = this;
 
 	vm.type = 'New';
