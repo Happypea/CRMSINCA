@@ -22,9 +22,8 @@
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Empresa relacionada</label>
 		<div class="col-sm-6" ng-controller="empresaController as empresa">
-			<select class="form-control" ng-model="evento.eventoData.empresaID" >
-				<option ng-repeat="ciss in empresa.empresas" value="{{ciss._id}}"  ng-selected="ciss._id==evento.empresaIDFixed.empresa_id">{{ciss.nombre}}</option>				  
-			</select>
+			<select  class="form-control" ng-model="evento.eventoData.empresaID" ng-options="ciss.nombre for ciss in empresa.empresas track by ciss._id" ></select>
+		
 		</div>
 
 	</div>
