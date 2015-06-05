@@ -73,11 +73,12 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'eventoController',
 			controllerAs: 'evento'
 		})
-		.when('/proyectos', {
-			templateUrl: 'app/views/pages/proyectos/proyectos.html',
-			controller: 'proyectoController',
-			controllerAs: 'proyecto'
+		.when('/eventos/:empresa_id', {
+			templateUrl: 'app/views/pages/eventos/eventos.html',
+			controller: 'eventoControllerFixed',
+			controllerAs: 'evento'
 		})
+		
 		.when('/proyectos/:numeroProyecto/:empresa_id', {
 			templateUrl: 'app/views/pages/proyectos/singleP.html',
 			controller: 'proyectoControllerNew',

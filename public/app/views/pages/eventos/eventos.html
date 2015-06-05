@@ -23,9 +23,10 @@
 		<label class="col-sm-2 control-label">Empresa relacionada</label>
 		<div class="col-sm-6" ng-controller="empresaController as empresa">
 			<select class="form-control" ng-model="evento.eventoData.empresaID" >
-				<option ng-repeat="ciss in empresa.empresas" value="{{ciss._id}}" >{{ciss.nombre}}</option>
+				<option ng-repeat="ciss in empresa.empresas" value="{{ciss._id}}"  ng-selected="ciss._id==evento.empresaIDFixed.empresa_id">{{ciss.nombre}}</option>				  
 			</select>
 		</div>
+
 	</div>
 
 <!-- PROBANDO NESTED ARRAYS >
@@ -61,7 +62,8 @@
 	
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-6">
-			<button type="submit" class="btn btn-success btn-lg btn-block" >Crear evento</button>
+			<button ng-href="/" ng-if="!evento.empresaIDFixed.empresa_id" type="submit" class="btn btn-success btn-lg btn-block" >Crear evento</button>
+			<button ng-href="/empresas/ver/{{evento.empresaIDFixed.empresa_id}}" ng-if="evento.empresaIDFixed.empresa_id" type="submit" class="btn btn-success btn-lg btn-block" >Crear evento</button>
 		</div>
 	</div>
 

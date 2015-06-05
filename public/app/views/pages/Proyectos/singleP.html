@@ -4,7 +4,7 @@
 
 </div>
 
-<form class="form-horizontal" ng-submit="" ng-if="proyecto.type == 'New'">	
+<form class="form-horizontal"  ng-if="proyecto.type == 'New'">	
 	<!--
 		Iran todo lo de los proyectos
 		Se le añade automaticamente la ID de la empresa
@@ -16,5 +16,8 @@
 		Proyectos solo afectan a una empresa
 
 	-->
-	Empresa id {{proyecto.empresaData._id}}
+	Empresa id {{proyecto.empresaID}}
+	numero proyecto {{proyecto.numPory}}
+
+
 </form>
