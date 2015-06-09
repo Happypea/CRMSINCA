@@ -92,10 +92,10 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'empresaController',
 			controllerAs: 'empresa'
 		})
-		.when('/proyectos/:proyecto_id', {
+		.when('/proyectos/ver/:proyecto_id', {
 			templateUrl: 'app/views/pages/Proyectos/singleP.html',
-			controller: 'empresaController',
-			controllerAs: 'empresa'
+			controller: 'proyectoVerController',
+			controllerAs: 'proyecto'
 		})
 		.when('/proyectos/create', {
 			templateUrl: 'app/views/pages/Proyectos/singleP.html',

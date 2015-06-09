@@ -38,8 +38,25 @@
 			</table>
 
 	</div>
-	<a class="btn btn-sm btn-block btn-default" href="/eventos">Crear nuevo evento</a>	
+	<a class="btn btn-sm btn-block btn-default" href="/eventos"><span class="glyphicon glyphicon-plus"></span> Crear nuevo evento</a>	
+</div>
+<div class="mainDcha col-sm-6" ng-controller="empresaController as empresa">
+<div class="jumbotron text-center"><h3>Campañas en marcha</h3></div>
+<div class="jumbotron" ><h3 class="text-center ">Proyectos en marcha</h3><hr>
+	<div ng-repeat="empresaSingle in empresa.empresas">	
+		<div class="panel panel-primary" ng-repeat="proyecto in empresaSingle.proyectos">
+			<h2 class="text-center panel-heading panel-title">{{proyecto.nombreP}}</h2>	
+			<div class="panel-body textoNormal">		
+				<p>Empresa: {{empresaSingle.nombre}}</p>
+				<p>Fecha inicial: {{proyecto.fechaP | date: 'dd/MM/yyyy'}}</p>
+				<p>Anotaciones: 0 notas</p>
+			
+				<a class="btn btn-sm btn-default col-xs-4 col-xs-offset-4  " href="/proyectos/ver/{{proyecto._id}}">Ver detalles</a>
+			</div>			
+			
+		</div>
+		
 	</div>
-	
+</div></div>
 </div>
 

@@ -142,16 +142,35 @@ angular.module('empresaCtrl', ['empresaService'])
 
 //Controllers de los proyectos probablemente haya que sacarlo de aqui y hacer us propio service
 
-.controller('proyectoControllerNew', function($routeParams, Empresa){
+.controller('proyectoVerController', function($routeParams, Empresa){
 	var vm = this;
 
-	vm.type = 'New';
+	vm.type = 'Ver';
+	var empresaSeleccionada = '';
+	Empresa.all()
+		.success(function(data) {	
+			
+			angular.forEach(data, function(value, key){					
+				angular.forEach(data[key]["proyectos"], function(value2, key2){				
+					angular.forEach(data[key]["proyectos"][key2], function(value3, key3){	
+						value3 == $routeParams.proyectoID ? empresaSeleccionada = data[key]:'';
+						value3 == $routeParams.proyectoID ? proyectoSeleccionado = data[key]["proyectos"][key2]:'';
 
-	Empresa.get($routeParams.empresa_id)
-		.success(function(data) {
-			vm.empresaData = data;
+
+
+					});
+				});
+			});
+
+			vm.empresas = empresaSeleccionada;
+			vm.proyectoSelec = proyectoSeleccionado;
+
 		});
 
+	
+	
+
+	
 
 		
 });

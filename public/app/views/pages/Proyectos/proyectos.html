@@ -9,14 +9,15 @@
 </div>
 <div class="leftcol col-xs-12" id="proyectosMain">
 	<div class="tabProyecto" ng-repeat="empresaSingle in empresa.empresas">
-
-		<div class="proyectoSingle" ng-repeat="proyecto in empresaSingle.proyectos">
-			<a class="text-center" href="/proyectos/{{proyecto._id}}">	<h4>{{proyecto.nombreP}}</h4></a>
+		<div class="proyectoSingle col-sm-offset-1 col-sm-3 col-xs-12" ng-repeat="proyecto in empresaSingle.proyectos">
+			<h4 class="text-center">{{proyecto.nombreP}}</h4>
 			<hr>
 			<p>- {{empresaSingle.nombre}}</p>
 			<p>-Fecha inicial: {{proyecto.fechaP | date: 'dd/MM/yyyy'}}</p>
-			<p>- 0 notas</p>
+			<p>- 0 notas</p><br>
+			<a class="btn btn-sm btn-default  btn-block " href="/proyectos/ver/{{proyecto._id}}">Ver detalles</a><br>
 		</div>
+
 	</div>
 
 	<a href="/proyectos/create" class="btn btn-default btn-block btn-sm clearfix">

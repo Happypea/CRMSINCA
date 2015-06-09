@@ -1,4 +1,4 @@
-<div ng-if="type!='ver'">
+<div ng-if="!proyecto.type">
 
 	<div class="page-header"><h1 class="text-center">Crear nuevo proyecto.</h1></div>
 	<form class="form-horizontal" ng-submit="empresa.saveProyecto()">
@@ -49,4 +49,26 @@
 
 		</div>
 	</div>
+</div>
+<div ng-if="proyecto.type=='Ver'">
+	<div class="col-xs-12 jumbotron" > 
+		<!--div  ng-repeat="proyectosS in empresas.proyectos " ng-show="proyectosS._id == proyecto.empresaSeleccionada" ng-init="proyectosS._id == proyecto.empresaSeleccionada ? mostrarPanel = true: mostrarPanel=false;">
+			
+		</div-->
+		Empresa Seleccionada
+		<li ng-repeat='(key, value) in proyecto.empresas'>
+			    {{key}} : {{value}}
+			</li><br>
+			Proyecto concreto
+		<li ng-repeat='(key, value) in proyecto.proyectoSelec'>
+			    {{key}} : {{value}}
+			</li>
+
+	</div>
+	<div class="jumbotron col-xs-12" style="border:1px solid red; margin-bottom:1%;">
+		
+			Archivos de proyectos para ver automaticamente
+		
+	</div>
+
 </div>

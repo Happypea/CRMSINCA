@@ -1,0 +1,17 @@
+Proyectos:
+	Estados
+		On hold
+		en marcha
+		acabado
+	Ficheros
+		gridfs
+		ver pdf sin descargar.
+Campañas
+	nuevo controller
+	nueva api
+	varias empresas
+	schema = campaña > nombre, empresa [empresaSchema], texto, archivos[], mailing.
+		empresaSchema > empresaID, contactos[], ficheros[], estado.
+Control
+	quehaceres
+	mailing interno

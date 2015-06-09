@@ -82,16 +82,34 @@ header .navbar 		{
 	color: #000000;
 }
 .proyectoSingle{
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	
+	border:1px solid;
+	border-color:rgba(27,80,143,1);
+	margin-bottom: 1%;
+	padding:0 2%;
+
+}
+.proyectoSingle h4{
+
+}
+.tabProyecto{
+	width:100%;
+	
+}
+.proyectoSingle2{
 
 	overflow:auto;
-	float:left;
-	width:30%;
-	height:200px;
-	background-color:#E5D765;
-	border:1px solid #B5BB76;
-	-webkit-box-shadow: 0px 0px 10px 0px#B1B1B1;
-	-moz-box-shadow: 0px 0px 10px 0px#B1B1B1;
-	box-shadow: 0px 0px 10px 0px#B1B1B1;
+	display:block;
+	
+	background-color:rgba(0,0,0,.2);
+	
+	border:1px solid #999;
+	-webkit-box-shadow: 0px 0px 10px 0px #999;
+	-moz-box-shadow: 0px 0px 10px 0px #999;
+	box-shadow: 0px 0px 10px 0px #999;
 	margin:1%;
 	padding:0 2%;
 
@@ -104,4 +122,4 @@ header .navbar 		{
 body{
 	padding-bottom:5%;
 }
-thead{background:#B4BFDE;}
+thead{background:#2780e3;}
