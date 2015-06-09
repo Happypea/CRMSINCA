@@ -1,1 +1,52 @@
-<div><p>Hola mundo single proyect</p></div>
+<div ng-if="type!='ver'">
+
+	<div class="page-header"><h1 class="text-center">Crear nuevo proyecto.</h1></div>
+	<form class="form-horizontal" ng-submit="empresa.saveProyecto()">
+		
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Nombre</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.nombreP">
+			</div>
+		
+			<label class="col-sm-2 control-label">fecha</label>
+			<div class="col-sm-4">
+				<input type="date" class="form-control" ng-model="empresa.empresaData.fechaP">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">descripcion</label>
+			<div class="col-sm-4">
+				<textarea class="form-control" ng-model="empresa.empresaData.descripcionP"></textarea>
+			</div>
+		
+			<label class="col-sm-2 control-label">empresa</label>
+			<div class="col-sm-4" >
+				<select  class="form-control" ng-model="empresa.empresaData.empresaID" ng-options="ciss.nombre for ciss in empresa.empresas track by ciss._id" >
+				
+				</select>
+			
+			</div>
+
+		</div>
+
+
+		
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-4">			
+				<button type="submit" class="btn btn-success btn-lg btn-block" >Crear proyecto</button>
+			</div>
+		</div>
+
+	</form>
+
+	<div class="row show-hide-message" ng-show="user.message">
+		<div class="col-sm-6 col-sm-offset-2">
+			
+			<div class="alert alert-info">
+				{{ user.message }}
+			</div>
+
+		</div>
+	</div>
+</div>

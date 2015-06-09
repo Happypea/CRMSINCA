@@ -193,6 +193,9 @@
 		<div class="panel-heading"><h2 class="panel-title text-center">Proyectos</h2></div>
 		<div class="panel-body textoNormal">
 			<span ng-hide="empresa.empresaData.proyectos[0]"><p>No hay ningun proyecto, crear uno nuevo</p></span><br>
+			<div ng-repeat="proyecto in empresa.empresaData.proyectos">
+				<p>{{proyecto.nombreP}}</p>
+			</div>
 			<a ng-href="/proyectos/{{ empresa.empresaData._id }}" class="btn btn-default btn-sm btn-success">Nuevo proyecto</a>
 		</div>
 	</div>

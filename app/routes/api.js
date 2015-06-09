@@ -216,6 +216,13 @@ module.exports = function(app, express) {
 			};
 			empresa.contactos.push(newContacto);
 
+					var newProyecto = {
+						nombreP : req.body.nombreP,
+						fechaP:req.body.fechaP,
+						descripcionP:req.body.descripcionP
+					};
+					empresa.proyectos.push(newProyecto);
+				
 			empresa.nombreP1             = req.body.nombreP1;
 			empresa.fechaP1              = req.body.fechaP1;
 			empresa.descripcionP1        = req.body.descripcionP1;
@@ -273,9 +280,9 @@ module.exports = function(app, express) {
 
 		// updates a una empresa concreta por ID
 		.put(function(req, res) {
-			Empresa.findById(req.params.empresa_id, function(err, empresa) {
+			Empresa.findById(req.params.empresa_id || req.body.empresaID._id, function(err, empresa) {
 				if (err) res.send(err);
-
+				
 				// set the new user information if it exists in the request
 				if(req.body.nombre ) empresa.nombre                            = req.body.nombre; 
 				if(req.body.Ubiciudad ) empresa.Ubiciudad                      = req.body.Ubiciudad; 
@@ -297,6 +304,14 @@ module.exports = function(app, express) {
 						emailC : req.body.emailC1
 					};
 					empresa.contactos.push(newContacto);
+				}
+				if(req.body.nombreP){
+					newProyecto = {
+						nombreP : req.body.nombreP,
+						fechaP:req.body.fechaP,
+						descripcionP:req.body.descripcionP
+					};
+					empresa.proyectos.push(newProyecto);
 				}
 
 

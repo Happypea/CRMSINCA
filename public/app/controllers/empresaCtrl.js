@@ -25,6 +25,19 @@ angular.module('empresaCtrl', ['empresaService'])
 			});
 	};
 
+	vm.saveProyecto = function(){
+		vm.processing = true;
+		vm.message='';
+		
+		Empresa.update(vm.empresaData.empresaID._id, vm.empresaData)
+			.success(function(data) {
+					vm.processing = false;	
+					vm.message = data.message;
+					window.location.reload();
+				});
+
+		vm.processing = false;
+	};
 
 })
 .controller('empresaCreateController', function(Empresa) {
@@ -121,6 +134,7 @@ angular.module('empresaCtrl', ['empresaService'])
 			});
 	};
 
+	
 })
 
 
@@ -137,7 +151,7 @@ angular.module('empresaCtrl', ['empresaService'])
 		.success(function(data) {
 			vm.empresaData = data;
 		});
-		
+
 
 		
 });

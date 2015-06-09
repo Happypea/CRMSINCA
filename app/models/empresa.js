@@ -7,12 +7,17 @@ var contactosSchema = new Schema({
 	telefonoC: String,
 	emailC: String
 });
+var anotacionesSchema = new Schema({
+	fecha:Date,
+	cuerpo:String,
+});
 
 var proyectosSchema = new Schema({
 	nombreP: String,
 	fechaP: Date,
 	descripcionP:String,
-	archivoP:String
+	archivoP:String,
+	anotaciones:[anotacionesSchema]
 });
 
 var ofertasSchema = new Schema({

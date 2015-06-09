@@ -1,1 +1,27 @@
-<div><p>Hola mundo</p></div>
+<h1>
+	Proyectos 
+	
+</h1>
+
+<div class="jumbotron text-center" ng-show="empresa.processing">
+	<span class="glyphicon glyphicon-repeat spinner"></span>
+	<p>Cargando Proyectos...</p>
+</div>
+<div class="leftcol col-xs-12" id="proyectosMain">
+	<div class="tabProyecto" ng-repeat="empresaSingle in empresa.empresas">
+
+		<div class="proyectoSingle" ng-repeat="proyecto in empresaSingle.proyectos">
+			<a class="text-center" href="/proyectos/{{proyecto._id}}">	<h4>{{proyecto.nombreP}}</h4></a>
+			<hr>
+			<p>- {{empresaSingle.nombre}}</p>
+			<p>-Fecha inicial: {{proyecto.fechaP | date: 'dd/MM/yyyy'}}</p>
+			<p>- 0 notas</p>
+		</div>
+	</div>
+
+	<a href="/proyectos/create" class="btn btn-default btn-block btn-sm clearfix">
+		<span class="glyphicon glyphicon-plus"></span> 
+			Nuevo Proyecto.
+	</a>
+</div>
+

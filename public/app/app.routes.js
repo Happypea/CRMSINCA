@@ -78,6 +78,9 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'eventoControllerFixed',
 			controllerAs: 'evento'
 		})
+
+
+
 		//Proyectos
 		.when('/proyectos', {
 			templateUrl: 'app/views/pages/Proyectos/proyectos.html',
@@ -85,6 +88,16 @@ angular.module('app.routes', ['ngRoute'])
 			controllerAs: 'empresa'
 		})
 		.when('/proyectos/:empresa_id', {
+			templateUrl: 'app/views/pages/Proyectos/singleP.html',
+			controller: 'empresaController',
+			controllerAs: 'empresa'
+		})
+		.when('/proyectos/:proyecto_id', {
+			templateUrl: 'app/views/pages/Proyectos/singleP.html',
+			controller: 'empresaController',
+			controllerAs: 'empresa'
+		})
+		.when('/proyectos/create', {
 			templateUrl: 'app/views/pages/Proyectos/singleP.html',
 			controller: 'empresaController',
 			controllerAs: 'empresa'
