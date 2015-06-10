@@ -307,11 +307,15 @@ module.exports = function(app, express) {
 					empresa.contactos.push(newContacto);
 				}
 				if(req.body.nombreP){
+					var writestream = gfs.createWriteStream({
+						    filename: req.body.documentoP
+						});
+					fs.createReadStream('/some/path').pipe(writestream);
 					newProyecto = {
 						nombreP : req.body.nombreP,
 						fechaP: req.body.fechaP,
-						descripcionP: req.body.descripcionP,
-						archivoP: req.body.documentoP
+						descripcionP: req.body.descripcionP,						
+						archivoP: writestream
 					};
 					empresa.proyectos.push(newProyecto);
 				}

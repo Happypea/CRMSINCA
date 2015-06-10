@@ -147,7 +147,7 @@ angular.module('empresaCtrl', ['empresaService'])
 
 	vm.type = 'Ver';
 	var empresaSeleccionada = '';
-	alert($routeParams.proyecto_id);	
+	//alert($routeParams.proyecto_id);	
 	Empresa.all()
 		.success(function(data) {	
 			

@@ -1,5 +1,5 @@
 {
-  "name": "node-api",
+  "name": "crmsinca",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "*",
@@ -8,5 +8,25 @@
     "jsonwebtoken": "^5.0.1",
     "mongoose": "~4.0.3",
     "morgan": "*"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "CRM Sinca wip",
+  "version": "1.0.5",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Happypea/CRMSINCA.git"
+  },
+  "keywords": [
+    "crm",
+    "sinca"
+  ],
+  "author": "Pablo de la Gandara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Happypea/CRMSINCA/issues"
+  },
+  "homepage": "https://github.com/Happypea/CRMSINCA"
 }

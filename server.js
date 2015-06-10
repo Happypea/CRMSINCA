@@ -7,9 +7,9 @@ var morgan     = require('morgan');
 var mongoose   = require('mongoose');
 var config 	   = require('./config');
 var path 	     = require('path');
-var gridform   = require('gridform');
-var options    = { db: config.database, mongo: mongoose };
-var form       = gridform(options);
+var Grid = require('gridfs-stream');
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -26,7 +26,7 @@ app.use(morgan('dev'));
 
 
 mongoose.connect(config.database); 
-
+var gfs = Grid(config.database, mongoose);
 
 
 app.use(express.static(__dirname + '/public'));
