@@ -49,6 +49,11 @@ angular.module('app.routes', ['ngRoute'])
 			controller: 'empresaController',
 			controllerAs: 'empresa'
 		})
+		.when('/leads', {
+			templateUrl: 'app/views/pages/empresas/leads.html',
+			controller: 'empresaController',
+			controllerAs: 'empresa'
+		})
 		.when('/empresas/create', {
 			templateUrl: 'app/views/pages/empresas/single.html',
 			controller: 'empresaCreateController',

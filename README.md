@@ -27,7 +27,7 @@
 #Control
 
 
-
+Diferenciar lina de negocio pantalla principal
 
 #DATOS PROYECTO
 

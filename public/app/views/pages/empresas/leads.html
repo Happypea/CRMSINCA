@@ -1,0 +1,56 @@
+<h1>
+	LEADS 
+	
+</h1>
+
+<div class="jumbotron text-center" ng-show="empresa.processing">
+	<span class="glyphicon glyphicon-repeat spinner"></span>
+	<p>Cargando Empresas...</p>
+</div>
+<div class="leftcol col-xs-12" id="empresasMain">
+
+	<div id="empresasBuscador" class="col-xs-12" style="margin:10px auto;">
+		<span class="col-xs-2">
+			<i class="fa fa-search"></i> Buscador:  <input type="text" ng-model='search' class="col-xs-12 buscadorEmpresasInput"/>
+		</span>
+
+	</div>
+	
+	<div id="listaEmpresas" class="col-xs-12">
+		
+		<table class="table table-condensed table-bordered" ng-show="empresa.empresas" ng-init="ordenacion = 'nombre'">
+			<thead>
+				<tr>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombre'"></i> Nombre</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'estado'"></i> Relacion </th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'nombreC1'"></i> Contacto</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'telefonoC1'"></i> Telefono </th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'emailC1'"></i> Email</th>
+					<th><i class="fa fa-arrow-circle-down" ng-click="ordenacion = 'actividad'"></i> Tipo de servicio</th>	
+					<th class="col-sm-2">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:'lead' " ng-class="buss.estado=='cliente' ? 'success' :  buss.estado=='potencial' ?  'info':'';">
+					<td>{{ buss.nombre | capitalize }}</td>
+					<td>{{ buss.estado | capitalize }}</td>
+					<td>{{ buss.contactos[0].nombreC | capitalize}}</td>
+					<td>{{ buss.contactos[0].telefonoC }}</td>
+					<td>{{ buss.contactos[0].emailC}}</td>
+					<td>{{ buss.actividad | capitalize}}</td>
+					<td>
+						<a ng-href="/empresas/ver/{{ buss._id }}" class="btn btn-default btn-sm col-xs-5 col-xs-offset-1">Detalles</a>
+
+						<a href="#"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(buss._id)"  class="btn btn-default btn-sm btn-danger col-xs-5 col-xs-offset-1">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<a href="/empresas/create" class="btn btn-default btn-block btn-sm">
+		<span class="glyphicon glyphicon-plus"></span> 
+		Nueva empresa.
+	</a>
+	</div>
+</div>
+
+

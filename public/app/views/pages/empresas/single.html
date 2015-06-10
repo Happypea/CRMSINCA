@@ -141,7 +141,11 @@
 			<div class="panel-heading"><h2 class="panel-title text-center">Datos generales</h2></div>		
 			<div class="textoNormal panel-body">
 				<p ng-show="empresa.empresaData.nombre"><b>Nombre:</b> {{empresa.empresaData.nombre | capitalize}}</p>
-				<p ng-show="empresa.empresaData.actividad"><b>Actividad:</b> {{empresa.empresaData.actividad | capitalize}}</p>
+				<p ng-show="empresa.empresaData.actividad"><b>Linea de negocio:</b> {{empresa.empresaData.actividad | capitalize}}</p>
+				<!-- añadir -->
+				<p ><b>Servicio ofertado:</b> </p>
+				<p ><b>Actividad:</b> </p>
+				<!-- -->
 				<p ng-show="empresa.empresaData.sector"><b>Sector:</b> {{empresa.empresaData.sector | capitalize}}</p>
 				<p ng-show="empresa.empresaData.estado"><b>Estado:</b> {{empresa.empresaData.estado | capitalize}}</p>
 				<p ng-show="empresa.empresaData.website"><b>P&aacute;gina Web: </b><a href="http://{{empresa.empresaData.website}}" target="_blank">{{empresa.empresaData.website }}</a></p>
