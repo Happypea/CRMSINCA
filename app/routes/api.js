@@ -309,9 +309,9 @@ module.exports = function(app, express) {
 				if(req.body.nombreP){
 					newProyecto = {
 						nombreP : req.body.nombreP,
-						fechaP:req.body.fechaP,
-						descripcionP:req.body.descripcionP,
-						archivoP:req.body.documentoP
+						fechaP: req.body.fechaP,
+						descripcionP: req.body.descripcionP,
+						archivoP: req.body.documentoP
 					};
 					empresa.proyectos.push(newProyecto);
 				}

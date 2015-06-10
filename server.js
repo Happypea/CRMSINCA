@@ -1,12 +1,15 @@
 
 var express    = require('express');		
 var app        = express();
-var http 	   = require('http'); 				
+var http 	     = require('http'); 				
 var bodyParser = require('body-parser'); 	
 var morgan     = require('morgan'); 		
 var mongoose   = require('mongoose');
 var config 	   = require('./config');
-var path 	   = require('path');
+var path 	     = require('path');
+var gridform   = require('gridform');
+var options    = { db: config.database, mongo: mongoose };
+var form       = gridform(options);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

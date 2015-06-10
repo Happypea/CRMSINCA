@@ -1,29 +1,29 @@
 #TODO
 ##Proyectos:
-*Estados
-  *On hold
-  *en marcha
-  *acabado
-*Facturas
-*Ficheros
-  *gridfs
-  *ver pdf sin descargar.
+* Estados
+  * On hold
+  * en marcha
+  * acabado
+* Facturas
+* Ficheros
+  * gridfs
+  * ver pdf sin descargar.
 ##Campañas
-*nuevo controller
-*nueva api
-*varias empresas
-*schema
-  *campaña 
-    *nombre
-    *empresa [empresaSchema]
-    *texto
-    *archivos[]
-    *mailing
-  *empresaSchema
-    *empresaID
-    *contactos[], 
-    *ficheros[], 
-    *estado.
+* nuevo controller
+* nueva api
+* varias empresas
+* schema
+  * campaña 
+    * nombre
+    * empresa [empresaSchema]
+    * texto
+    * archivos[]
+    * mailing
+  * empresaSchema
+    * empresaID
+    * contactos[], 
+    * ficheros[], 
+    * estado.
 #Control
 
 
