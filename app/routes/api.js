@@ -233,20 +233,7 @@ module.exports = function(app, express) {
 			empresa.fechaO1              = req.body.fechaO1;
 			empresa.archivoO1            = req.body.archivoO1;
 			empresa.terminadoO1          = req.body.terminadoO1;
-//			
-			//empresa.proyectos.nombreP      = req.body.nombrePro;
-			//empresa.proyectos.fechaP       = req.body.fechaPro;
-			//empresa.proyectos.descripcionP = req.body.descripcionPro;
-			//empresa.proyectos.archivoP     = req.body.archivoPro;
-//			
-			//empresa.ofertas.nombreO      = req.body.nombreOfe;
-			//empresa.ofertas.descripcionO = req.body.descripcionOfe;
-			//empresa.ofertas.fechaO       = req.body.fechaOfe;
-			//empresa.ofertas.archivoO     = req.body.archivoOfe;
-			//empresa.ofertas.terminadoO   = req.body.terminadoOfe;
-			//
-			
-			
+
 			empresa.save(function(err) {
 				if (err) {					
 					if (err.code == 11000) 
@@ -306,6 +293,7 @@ module.exports = function(app, express) {
 					};
 					empresa.contactos.push(newContacto);
 				}
+
 				if(req.body.nombreP){
 					newProyecto = {
 						nombreP : req.body.nombreP,
@@ -315,33 +303,6 @@ module.exports = function(app, express) {
 					empresa.proyectos.push(newProyecto);
 				}
 
-
-				if(req.body.nombreP1) empresa.nombreP1           = req.body.nombreP1;
-				if(req.body.fechaP1) empresa.fechaP1             = req.body.fechaP1;
-				if(req.body.descripcionP1) empresa.descripcionP1 = req.body.descripcionP1;
-				if(req.body.archivoP1) empresa.archivoP1         = req.body.archivoP1;
-				if(req.body.nombreO1) empresa.nombreO1           = req.body.nombreO1;
-				if(req.body.descripcionO1) empresa.descripcionO1 = req.body.descripcionO1;
-				if(req.body.fechaO1) empresa.fechaO1             = req.body.fechaO1;
-				if(req.body.archivoO1) empresa.archivoO1         = req.body.archivoO1;
-				if(req.body.terminadoO1) empresa.terminadoO1     = req.body.terminadoO1;
-				
-//
-				//if(req.body.contactos) empresa.contactos   				= req.body.contactos;
-				//if(req.body.nombreC) empresa.contactos.nombreC 		   = req.body.nombreC; 
-				//if(req.body.telefonoC) empresa.contactos.telefonoC       = req.body.telefonoC; 
-				////if(req.body.emailC) empresa.contactos.emailC             = req.body.emailC; 
-				//if(req.body.EUPnombre) empresa.proyectos.nombre           = req.body.EUPnombre; 
-				//if(req.body.EUPfecha) empresa.proyectos.fecha             = req.body.EUPfecha; 
-				//if(req.body.EUPdescripcion) empresa.proyectos.descripcion = req.body.EUPdescripcion; 
-				//if(req.body.EUParchivo) empresa.proyectos.archivo         = req.body.EUParchivo; 
-				//if(req.body.EUOnombre) empresa.ofertas.nombre             = req.body.EUOnombre; 
-				//if(req.body.EUOdescripcion) empresa.ofertas.descripcion   = req.body.EUOdescripcion; 
-				//if(req.body.EUOfecha) empresa.ofertas.fecha               = req.body.EUOfecha; 
-				//if(req.body.EUOarchivo) empresa.ofertas.archivo           = req.body.EUOarchivo; 
-				//if(req.body.EUOterminado) empresa.ofertas.terminado       = req.body.EUOterminado; 
-
-				
 				empresa.save(function(err) {
 					if (err) res.send(err);
 
