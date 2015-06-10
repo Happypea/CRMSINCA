@@ -29,6 +29,11 @@
 			</div>
 
 		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Añadir documento</label>
+			<div class="col-sm-4" ><input type="file" ng-model="empresa.empresaData.documetoP" class="form-control"></div>
+			<div class="col-sm-4 col-sm-offset-2 jumbotron">Lista de archivos subidos</div>
+		</div>
 
 
 		
@@ -62,7 +67,7 @@
 			Proyecto concreto
 		<li ng-repeat='(key, value) in proyecto.proyectoSelec'>
 			    {{key}} : {{value}}
-			</li>
+		</li>
 
 	</div>
 	<div class="jumbotron col-xs-12" style="border:1px solid red; margin-bottom:1%;">

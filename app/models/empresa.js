@@ -17,7 +17,8 @@ var proyectosSchema = new Schema({
 	fechaP: Date,
 	descripcionP:String,
 	archivoP:String,
-	anotaciones:[anotacionesSchema]
+	anotaciones:[anotacionesSchema],
+	documentos:String
 });
 
 var ofertasSchema = new Schema({

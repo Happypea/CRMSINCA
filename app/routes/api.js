@@ -219,7 +219,8 @@ module.exports = function(app, express) {
 					var newProyecto = {
 						nombreP : req.body.nombreP,
 						fechaP:req.body.fechaP,
-						descripcionP:req.body.descripcionP
+						descripcionP:req.body.descripcionP,
+						archivoP:req.body.documentoP
 					};
 					empresa.proyectos.push(newProyecto);
 				
@@ -309,7 +310,8 @@ module.exports = function(app, express) {
 					newProyecto = {
 						nombreP : req.body.nombreP,
 						fechaP:req.body.fechaP,
-						descripcionP:req.body.descripcionP
+						descripcionP:req.body.descripcionP,
+						archivoP:req.body.documentoP
 					};
 					empresa.proyectos.push(newProyecto);
 				}

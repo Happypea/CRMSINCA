@@ -147,16 +147,17 @@ angular.module('empresaCtrl', ['empresaService'])
 
 	vm.type = 'Ver';
 	var empresaSeleccionada = '';
+	alert($routeParams.proyecto_id);	
 	Empresa.all()
 		.success(function(data) {	
 			
 			angular.forEach(data, function(value, key){					
 				angular.forEach(data[key]["proyectos"], function(value2, key2){				
-					angular.forEach(data[key]["proyectos"][key2], function(value3, key3){	
-						value3 == $routeParams.proyectoID ? empresaSeleccionada = data[key]:'';
-						value3 == $routeParams.proyectoID ? proyectoSeleccionado = data[key]["proyectos"][key2]:'';
-
-
+					angular.forEach(data[key]["proyectos"][key2], function(value3, key3){
+						
+						value3 == $routeParams.proyecto_id ? empresaSeleccionada = data[key]:'';
+						value3 == $routeParams.proyecto_id ? proyectoSeleccionado = data[key]["proyectos"][key2]:'';
+						//value3 == $routeParams.proyectoID ? alert(data[key]["proyectos"][key2]._id):'';
 
 					});
 				});
