@@ -13,12 +13,22 @@ var anotacionesSchema = new Schema({
 });
 
 var proyectosSchema = new Schema({
-	nombreP: String,
-	fechaP: Date,
-	descripcionP:String,
-	archivoP:String,
+	nombre: String,
+	fecha: Date,
+	descripcion:String,
+	archivo:String,
 	anotaciones:[anotacionesSchema],
-	documentos:String
+	documentos:String,
+	linea_de_negocio: String,
+	codigo: String,
+	servicio: String,
+	cliente: String,
+	fecha_de_inicio: Date,
+	plazo_previsto_fin_de_proyecto: String,
+	tecnico_responsable: String,
+	director_de_proyecto: String,
+	presupuesto_aceptado : String,
+	persona_de_contacto: String
 });
 
 var ofertasSchema = new Schema({

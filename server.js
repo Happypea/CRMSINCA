@@ -31,6 +31,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 var apiRoutes = require('./app/routes/api')(app, express);
+
 app.use('/api', apiRoutes);
 /////////////////////
 var os = require('os');

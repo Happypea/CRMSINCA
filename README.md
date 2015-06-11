@@ -25,36 +25,35 @@
     * ficheros[], 
     * estado.
 #Control
-
+Auto linea de productos
+referencia cliente proyecto empresas contacto
 
 Diferenciar lina de negocio pantalla principal
 
 #DATOS PROYECTO
 
+LINEA DE NEGOCIO
 EXP. / CÓDIGO
-TÍTULO / OBRA
+TÍTULO / OBRA / SERVICIO
 CLIENTE
-COORDINADOR DE SEGURIDAD Y SALUD
-TITULACIÓN
-FECHA DE NOMBRAMIENTO
-TEL..
-FAX
-MOVIL
-EMAIL:
-PLAZO PREVISTO DE LAS OBRAS (Meses)
-ENTRA PLAN S.Y.S.
-APROBACION DEL PLAN
-INFORME FAVORABLE
-INICIO OBRA          ACR
-FIN OBRA
+FECHA DE INICIO
+PLAZO PREVISTO FIN DE PROYECTO
+
+TECNICO RESPONSABLE / DIRECTOR DE PROYECTO
+PRESUPUESTO ACEPTADO 
+
 EMPRESA CONTRATISTA
 PERSONA DE CONTACTO
-DOMICILIO
-TEL.:
-MOVIL
-FAX.
-EMAIL 
 
+
+
+
+
+
+
+
+
+/*
 
 DIRECCION DE OBRA
 DOMICILIO
@@ -65,15 +64,16 @@ EMAIL.
 I.V.A. 
 % SINCA P.E.M
 P.E.M.
-
-	Importe Adjudicación  SINCA (IVA/IGIC incluido)
-	Importe  P.E.C. Adjudicación  CONTRATA IVA/IGIC incluido)
-	Importe Adjudicación (sin IVA/IGIC)
+  Importe Adjudicación  SINCA (IVA/IGIC incluido)
+  Importe  P.E.C. Adjudicación  CONTRATA IVA/IGIC incluido)
+  Importe Adjudicación (sin IVA/IGIC)
 SUBCONTRATA.
 % SUBCONTRATADO
-	Importe Beneficio total (IVA/IGIC incluido)
-	Importe pagar  (IVA/IGIC incluido)
+  Importe Beneficio total (IVA/IGIC incluido)
+  Importe pagar  (IVA/IGIC incluido)
 PROYECTISTA
-	DOMICILIO
-	TELEFONO
-	MOVIL
+  DOMICILIO
+  TELEFONO
+  MOVIL
+*/
+

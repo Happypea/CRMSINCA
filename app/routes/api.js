@@ -93,7 +93,7 @@ module.exports = function(app, express) {
 	});
 
 	// Ruta de prueba para postman
-	// GET http://localhost:8080/api
+	// GET http://localhost:1744/api
 	apiRouter.get('/', function(req, res) {
 		res.json({ message: 'Bienvenido a la API de CRM SINCA' });	
 	});
@@ -198,8 +198,6 @@ module.exports = function(app, express) {
 			
 			empresa.nombre               = req.body.nombre	
 			empresa.sector               = req.body.sector;  
-			//empresa.targetE              = req.body.targetE;  
-			//empresa.cliente              = req.body.cliente;  
 			empresa.estado				 = req.body.estado;
 			empresa.actividad            = req.body.actividad;  
 			empresa.website              = req.body.website;  
@@ -217,22 +215,23 @@ module.exports = function(app, express) {
 			empresa.contactos.push(newContacto);
 
 					var newProyecto = {
-						nombreP : req.body.nombreP,
-						fechaP:req.body.fechaP,
-						descripcionP:req.body.descripcionP,
-						archivoP:req.body.documentoP
+						nombre : req.body.nombreP,
+						fecha:req.body.fechaP,
+						descripcion:req.body.descripcionP,
+						linea_de_negocio: req.body.lineaP,
+						codigo: req.body.codigoP,
+						servicio: req.body.servicioP,
+						cliente: req.body.clienteP,
+						fecha_de_inicio: req.body.fechaP2,
+						plazo_previsto_fin_de_proyecto: req.body.plazoP,
+						tecnico_responsable: req.body.tecnicoP,
+						director_de_proyecto: req.body.directorP,
+						presupuesto_aceptado : req.body.presupuestoP,
+						persona_de_contacto: req.body.personaP
 					};
 					empresa.proyectos.push(newProyecto);
 				
-			empresa.nombreP1             = req.body.nombreP1;
-			empresa.fechaP1              = req.body.fechaP1;
-			empresa.descripcionP1        = req.body.descripcionP1;
-			empresa.archivoP1            = req.body.archivoP1;
-			empresa.nombreO1             = req.body.nombreO1;
-			empresa.descripcionO1        = req.body.descripcionO1;
-			empresa.fechaO1              = req.body.fechaO1;
-			empresa.archivoO1            = req.body.archivoO1;
-			empresa.terminadoO1          = req.body.terminadoO1;
+			
 
 			empresa.save(function(err) {
 				if (err) {					
@@ -277,8 +276,6 @@ module.exports = function(app, express) {
 				if(req.body.Ubizip) empresa.Ubizip                             = req.body.Ubizip; 
 				if(req.body.Ubicalle) empresa.Ubicalle                         = req.body.Ubicalle; 
 				if(req.body.sector) empresa.sector                             = req.body.sector; 
-				//if(req.body.targetE) empresa.targetE                           = req.body.targetE.value; 
-				//if(req.body.cliente) empresa.cliente                           = req.body.cliente.value;
 				if(req.body.estado)	empresa.estado							   = req.body.estado;
 				if(req.body.descripcionSituacion) empresa.descripcionSituacion = req.body.descripcionSituacion;
 				 
@@ -295,10 +292,20 @@ module.exports = function(app, express) {
 				}
 
 				if(req.body.nombreP){
-					newProyecto = {
-						nombreP : req.body.nombreP,
-						fechaP:req.body.fechaP,
-						descripcionP:req.body.descripcionP,
+					var newProyecto = {
+						nombre : req.body.nombreP,
+						fecha:req.body.fechaP,
+						descripcion:req.body.descripcionP,
+						linea_de_negocio: req.body.lineaP,
+						codigo: req.body.codigoP,
+						servicio: req.body.servicioP,
+						cliente: req.body.clienteP,
+						fecha_de_inicio: req.body.fechaP2,
+						plazo_previsto_fin_de_proyecto: req.body.plazoP,
+						tecnico_responsable: req.body.tecnicoP,
+						director_de_proyecto: req.body.directorP,
+						presupuesto_aceptado : req.body.presupuestoP,
+						persona_de_contacto: req.body.personaP
 					};
 					empresa.proyectos.push(newProyecto);
 				}

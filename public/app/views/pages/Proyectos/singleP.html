@@ -9,7 +9,7 @@
 				<input type="text" class="form-control" ng-model="empresa.empresaData.nombreP">
 			</div>
 		
-			<label class="col-sm-2 control-label">fecha</label>
+			<label class="col-sm-2 control-label">Fecha</label>
 			<div class="col-sm-4">
 				<input type="date" class="form-control" ng-model="empresa.empresaData.fechaP">
 			</div>
@@ -20,7 +20,7 @@
 				<textarea class="form-control" ng-model="empresa.empresaData.descripcionP"></textarea>
 			</div>
 		
-			<label class="col-sm-2 control-label">empresa</label>
+			<label class="col-sm-2 control-label">Empresa contratista</label>
 			<div class="col-sm-4" >
 				<select  class="form-control" ng-model="empresa.empresaData.empresaID" ng-options="ciss.nombre for ciss in empresa.empresas track by ciss._id" >
 				
@@ -29,6 +29,67 @@
 			</div>
 
 		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Linea de productos</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.lineaP">
+			</div>
+		
+			<label class="col-sm-2 control-label">C&oacute;digo</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.codigoP">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Servicio</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.servicioP">
+			</div>
+		
+			<label class="col-sm-2 control-label">Cliente</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.clienteP">
+			</div>
+		</div>
+		<div class="form-group">
+		
+			<label class="col-sm-2 control-label">Fecha</label>
+			<div class="col-sm-4">
+				<input type="date" class="form-control" ng-model="empresa.empresaData.fechaP2">
+			</div>
+			<label class="col-sm-2 control-label">Plazo estimado</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.plazoP">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Tecnico responsable</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.tecnicoP">
+			</div>
+		
+			<label class="col-sm-2 control-label">Director de proyecto</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.directorP">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Presupuesto inicial</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.presupuestoP">
+			</div>
+		
+		
+			<label class="col-sm-2 control-label">Persona de contacto</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" ng-model="empresa.empresaData.personaP">
+			</div>		
+		</div>
+
+
+
+
+
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Añadir documento</label>
 			<div class="col-sm-4" ><input type="file" ng-model="empresa.empresaData.documetoP" class="form-control"></div>
@@ -57,22 +118,25 @@
 </div>
 <div ng-if="proyecto.type=='Ver'">
 	<div class="col-xs-12 jumbotron" > 
-		<!--div  ng-repeat="proyectosS in empresas.proyectos " ng-show="proyectosS._id == proyecto.empresaSeleccionada" ng-init="proyectosS._id == proyecto.empresaSeleccionada ? mostrarPanel = true: mostrarPanel=false;">
-			
-		</div-->
-		Empresa Seleccionada
-		<li ng-repeat='(key, value) in proyecto.empresas'>
-			    {{key}} : {{value}}
-			</li><br>
-			Proyecto concreto
-		<li ng-repeat='(key, value) in proyecto.proyectoSelec'>
-			    {{key}} : {{value}}
-		</li>
-
+		<h2>{{proyecto.proyectoSelec.nombre | uppercase}}</h2><hr>
+	
+			    <div class="form-group" ng-repeat='(key, value) in proyecto.proyectoSelec'>
+			    	<label class="control-label  col-sm-6 col-xs-12" ng-if="key!='anotaciones' && key!='nombre'" >{{key  | capitalize | underScoreTrim }} : 
+			    		<input type="text" value="{{value | date:'dd/MM/yyyy'}}" class="form-control">			    		
+			    	</label>
+			    	<label ng-if="key=='anotaciones'" class="control-label col-xs-12">
+			    		{{key | capitalize | underScoreTrim }}
+			    		<textarea class="form-control"ng-if="proyecto.proyectoSelec.anotaciones == 0">No hay anotaciones por el momento</textarea>
+		    			<textarea class="form-control" ng-repeat="anotacion in proyecto.proyectoSelec.anotaciones">{{anotacion.fecha | date:'dd/MM/yyyy'}}: {{anotacion.cuerpo}}&#13;&#10;</textarea>
+		    		</label>
+			    </div>
+		
 	</div>
 	<div class="jumbotron col-xs-12" style="border:1px solid red; margin-bottom:1%;">
 		
 			Archivos de proyectos para ver automaticamente
+
+
 		
 	</div>
 
