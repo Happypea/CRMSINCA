@@ -10,7 +10,7 @@
 
 						-->
 </div>
-
+<!-- formulario nueva empresa -->
 <form class="form-horizontal" ng-submit="empresa.saveEmpresa()" ng-if="empresa.type != 'view'">	
 	<div class="form-group" ng-show="false">
 		<label class="col-sm-2 control-label">Id</label>
@@ -40,7 +40,8 @@
 			<input type="text" class="form-control" ng-model="empresa.empresaData.actividad">
 		</div>
 	</div>	
-<hr>
+	<hr>
+
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Ciudad</label>
 		<div class="col-sm-4">
@@ -116,8 +117,8 @@
 		</div>
 	</div>
 
-</form>
-
+</form><!-- fin form nueva empresa -->
+<!-- Ver datos una sola empresa -->
 <div ng-if="empresa.type=='view'" id="empresasShowView">
 	<div class="col-xs-6" id="empresaShowIzq">
 		<div class="col-xs-12 panel panel-primary"> 
@@ -197,7 +198,7 @@
 	
 		<a href="/empresas"  ng-confirm-click="¿Deseas borrar esta empresa permanentemente?" ng-click="empresa.deleteEmpresa(empresa.empresaData._id)"  class="btn btn-default btn-sm btn-danger col-xs-6">Borrar</a>
 	</div>
-</div>
+</div><!-- fin ver datos nueva empresa--> 
 
 <div class="row show-hide-message" ng-show="empresa.message">
 	<div class="col-sm-6 col-sm-offset-2">

@@ -31,7 +31,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:search " ng-class="buss.estado=='cliente' ? 'success' :  buss.estado=='potencial' ?  'info':'';">
+				<tr ng-repeat="buss in empresa.empresas | orderBy : ordenacion | filter:'cliente' ">
 					<td>{{ buss.nombre | capitalize }}</td>
 					<td>{{ buss.estado | capitalize }}</td>
 					<td>{{ buss.contactos[0].nombreC | capitalize}}</td>
@@ -46,25 +46,6 @@
 				</tr>
 			</tbody>
 		</table>
-	<a href="/empresas/create" class="btn btn-default btn-block btn-sm">
-		<span class="glyphicon glyphicon-plus"></span> 
-		Nueva empresa.
-	</a>
+	
 	</div>
 </div>
-<!--div class="rightCol col-sm-4 col-xs-12" id="empresasLateral">
-	
-	<div id="empresasFiltros" class="col-xs-12">
-		<ul class="list-unstyled">
-			<li><label><input type="checkbox"> Lorem ipsum dolor</label></li>
-			<li><label><input type="checkbox"> tempor incididunt ut</label></li>
-			<li><label><input type="checkbox"> quis nostrud exercitation</label></li>
-			<li><label><input type="checkbox"> consequat. Duis</label></li>
-			<li><label><input type="checkbox"> cillum dolore eu</label></li>
-			<li><label><input type="checkbox"> proident, sunt</label></li>
-		</ul>
-	</div>
-</div-->
-
-
-

@@ -7,6 +7,7 @@ var contactosSchema = new Schema({
 	telefonoC: String,
 	emailC: String
 });
+
 var anotacionesSchema = new Schema({
 	fecha:Date,
 	cuerpo:String,
